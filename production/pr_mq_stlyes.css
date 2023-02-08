@@ -1,0 +1,18 @@
+@media only screen and (min-height: 1200px) {
+    .prod_header {
+        margin-bottom: 50px;
+        color: white;
+    }
+    #navigate_services {
+        margin-top: 50px;
+    }
+    footer {
+        margin-top: 50px;
+    }
+}
+@media only screen and (max-height: 940px) {
+    iframe {
+        width: 400px;
+        height: 225px;
+    }
+}

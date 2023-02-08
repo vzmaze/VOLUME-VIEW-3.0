@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VolumeView</title>
+    <link href="vv_styles.css" rel="stylesheet">
+    <link href="media_query.css" rel="stylesheet">
+</head>
+<body>
+    <div id="logo_div">
+        <img src="img/line_400px.png">
+        <h1 id="logo">VolumeView</h1>
+        <h2 class="h2">PRODUCTION</h2>
+    </div>
+    <!-- кнопка открыть меню / закрыть меню -->
+    <div id="menu_btn_frame">
+        <hr class="menu_btn_line">
+        <hr class="menu_btn_line">
+        <hr class="menu_btn_line">
+    </div>
+    <div id="bulb_div"></div>
+    <div id="slogan"><h1>we see the light in every story we create</h1></div>
+    <div id="go_down">
+        <h3 id="scroll_down_title">SCROLL DOWN FOR MORE</h3>
+        <img id="arrow_down" src="img/down_arrow.png" alt="down arrow">
+    </div>
+    <nav>
+        <!-- само меню -->
+        <div id="menu_div" class="window"> <!-- класс "window" по-умолчание display none для управления через JS -->
+            <h1 class="h1_gray">MENU</h1>
+            <div id="menu_elements" class="lists_menu_like">
+                <ul class="h2">
+                    <li><a href="#" onclick="closeMenu()">MAIN</a></li>
+                    <li><a onclick="scrollWindowTo(), closeMenu()">ВИРОБНИЦТВО</a></li>
+                    <li><a onclick="scrollWindowTo(scrollToPortfolio), closeMenu()">PORTFOLIO</a></li>
+                    <li><a href="#">BLOG</a></li>
+                    <li><a href="#">PRICING</a></li>
+                    <li><a onclick="scrollWindowTo(scrollToFeedbacks), closeMenu()">FEEDBAKS</a></li>
+                    <li><a onclick="scrollWindowTo(scrollToContacts), closeMenu()">CONTACTS</a></li>
+                    <li class="sign_in_up"><a href="#">SIGN UP</a></li>
+                    <li class="sign_in_up"><a href="#">SIGN IN</a></li>
+                    <li><a onclick="scrollWindowTo(scrollToContactUS), closeMenu()">SEND MESSAGE</a></li>
+                </ul>
+                <div id="search_div">
+                    <h2 class="h2" id="search">SEARCH</h2>
+                    <img src="img/search_icon.png" alt="search">
+                </div>
+            </div>
+        </div>
+
+        <!-- окна sign in / sign up -->
+        <div id="sign_in_window" class="window">
+            <div id="window_btn_frame">
+                <hr><hr>
+            </div>
+            <h1 class="h1_gray">SIGN UP</h1>
+            <h2 class="h2">SIGN UP USING</h2>
+            <div id="smedia_sign_up_btns">
+                <button class="smedia_btn" id="facebook_sgn_btn">facebook</button>
+                <button class="smedia_btn" id="google_sgn_btn">google+</button>
+                <button class="smedia_btn" id="twitter_sgn_btn">twitter</button>
+            </div>
+            <h2 class="h2">OR ENTER FOLLOWING INFORMATION</h2>
+            <form class="sign_in">
+                <input class="input" type="text" name="name" placeholder="Name">
+                <input class="input" type="email" name="email" placeholder="Email">
+                <input class="input" id="input_pass" type="password" name="password" placeholder="Password">
+                <input class="input" id="submit_btn" type="submit" value="SIGN UP">
+            </form>
+        </div>
+    </nav>
+
+    <!-- SERVICES -->
+    <section class="width_of_window" id="services">
+        <h1 id="services_header" class="h1_gray">ВИРОБНИЦТВО</h2>
+        <div id="services_list" class="lists_menu_like">
+            <ul class="h2">
+                <li class="services_li">TRAVEL ФІЛЬМИ</li>
+                <li class="services_li">БІЗНЕС STORIES</li>
+                <li class="services_li">PROMO РОЛИКИ</li>
+                <li class="services_li">МУЗИЧНІ КЛІПИ</li>
+                <li class="services_li">EVENT ВІДЕО</li>
+                <li class="services_li">ФОТОГРАФІЯ</li>
+            </ul>
+            <div class="service_descr_block">
+                <p class="service_description" id="travel_descr">Наш авторський travel проєкт «Tour de Ukraine». Емоційне відео, атмосферний звук, інформативне наповнення та індивідуальний підхід. Кожен наш фільм створений в любові до України та туризму.<br><span><a href="./production/travel.html">See more</a></span> or <span onclick="scrollWindowTo(scrollToPortfolio)">portfolio</span></p>
+
+                <p class="service_description" id="business_descr">Власна нативна історія краще за рекламу! Хочете, щоб ваш бізнес полюбили з першого кадру? Ми гарантуємо вам індивідуальний підхід, креативну ідею, організацію знімального процесу, якісну картинку та монтаж.<br><span><a href="./production/business.html">See more</a></span> or <span onclick="scrollWindowTo(scrollToPortfolio)">portfolio</span></p>
+
+                <p class="service_description" id="promo_descr">Презентаційний ролик – сучасна візитівка. Ми допоможемо вам у доступній формі та швидко розповісти про власний продукт або проєкт, донести важливу інформацію до клієнтів і партнерів.<br><span><a href="./production/promo.html">See more</a></span> or <span onclick="scrollWindowTo(scrollToPortfolio)">portfolio</span></p>
+
+                <p class="service_description" id="music_descr">Ваша зірка має сяяти. А ми знаємо, з якого ракурсу найяскравіше. Пропонуємо розробку індивідуальної ідеї до композиції або екслюзивну адаптацію існуючої роботи за бажанням клієнта.<br><span><a href="./production/music.html">See more</a></span> or <span onclick="scrollWindowTo(scrollToPortfolio)">portfolio</span></p>
+
+                <p class="service_description" id="event_descr">Важлива подія матиме ефектний підсумок. Презентації, конференції, премії та панельні конференції. Наша професійна команда організує знімальний процес та зробить яскраве, емоційне резюме вашого заходу.<br><span><a href="./production/event.html">See more</a></span> or <span onclick="scrollWindowTo(scrollToPortfolio)">portfolio</span></p>
+
+                <p class="service_description" id="photo_descr">Контент наповнює сенсом вашу справу. Тож пропонуємо супутньо із відео створити для вас фото-базу широкого застосування. Власний сайт, офіційні сторінки у Facebook, Instagram, Telegram, Twitter, TikTok – усі ці соціальні платформи потребують постійного та якісного наповнення. Ми допоможемо вам зробити робочу добірку фотографій, що будуть доречні для різних тем та ресурсів.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section class="width_of_window" id="portfolio">
+        <h1 id="portfolio_header" class="h1_gray">PORTFOLIO</h1>
+        <select id="portfolio_sel" class="h2" name="portfolioCatSel">
+            <option value="all" id="opt_all" selected>All categories</option>
+            <option value="travelFilms">Travel фільми</option>
+            <option value="businessStories">Бізнес stories</option>
+            <option value="promoRoliki">Promo ролики</option>
+            <option value="musicVideos">Музичні кліпи</option>
+            <option value="eventVideos">Event відео</option>
+            <option value="photo">Фотографія</option>
+        </select>
+        <div id="portfolio_block">
+
+            <!-- все examples создаются в JS -->
+
+            <!-- <div class="portfolio_example" id="pfEx1">
+                <div class="cover">
+                    <p class="h2">SUBSENCE MONOCHROME</p>
+                    <p class="small_text">Web design in monochromatic colors for SUBSENCE agence.</p>
+                    <p class="italic_text">web design</p>
+                </div>
+            </div> -->
+            
+        </div>
+        <div id="portfolio_pages">
+            <span id="pp_btn_1" class="pointer">1</span>
+            <span id="pp_btn_2_prev" class="pointer">PREV</span>
+            <span id="pp_btn_3">7</span>
+            <span id="pp_btn_4_next" class="pointer">NEXT</span>
+            <span id="pp_btn_5" class="pointer">99</span>
+        </div>
+    </section>
+    
+    <!-- FEEDBACK -->
+    <section id="feedback_section" class="width_of_window">
+        <div>
+            <h1 class="h1_gray">FEEDBAKS</h1>
+            <template id="feedback_template">
+                <div id="img_and_p">
+                    <img src={{img}}><p class="h2">{{text}}</p>
+                </div>
+                <h2 class="h2">{{name}}</h2>
+            </template>
+            <div id="feedbacks_div">
+                <!-- заполняется в feedback_source.js спомощью musctache.js -->
+            </div>
+            <p id="feedback_footer">CLICK HERE FOR MORE FEEDBACKS</p>
+        </div>
+        <div id="contact_us">
+            <h1 class="h1_gray">CONTACT US</h1>
+            <form action="send.php" method="POST" class="sign_in" name="contact_us_form">
+                <input class="input" type="text" name="name" placeholder="Name" minlength="2" required>
+                <input class="input" type="email" name="email" placeholder="Email" required>
+                <textarea class="input" name="message" placeholder="Your message" minlength="10" required></textarea>
+                <input class="input" name="sendBtn" id="send_btn" type="submit" value="SEND">
+            </form>
+        </div>
+    </section>
+
+    <section id="contacts" class="width_of_window">
+        <h1 class="h1_gray">CONTACTS</h1>
+        <div id="contacts_div">
+            <div class="contact_type">
+                <h2 class="h2">PHONE</h2>
+                <h2 class="h2">8-800-500-40-10</h2>
+                <h2 class="h2">8-800-700-80-20</h2>
+            </div>
+            <div class="contact_type">
+                <h2 class="h2">EMAIL</h2>
+                <h2 class="h2">UNDERCOVERDESIGN@mail.com</h2>
+                <h2 class="h2">UNDERCOVERSUPPORT@mail.com</h2>
+            </div>
+            <div class="contact_type">
+                <h2 class="h2">ADRESS</h2>
+                <h2 class="h2">HEROYIV STALINGRADU 27,</h2>
+                <h2 class="h2">KYIV, UKRAINE</h2>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <h1 id="footer_slogan" class="slogan">this is the place where sparkles of idea turns into fire</h1>
+        <ul id="footer_links">
+            <li><a onclick="scrollWindowTo(), closeMenu()">services</a></li>
+            <li><a onclick="scrollWindowTo(scrollToPortfolio), closeMenu()">portfolio</a></li>
+            <li><a onclick="scrollWindowTo(scrollToFeedbacks), closeMenu()">feedbacks</a></li>
+            <li><a onclick="scrollWindowTo(scrollToContactUS), closeMenu()">contact us</a></li>
+            <li><a onclick="scrollWindowTo(scrollToContacts), closeMenu()">contacts</a></li>
+            <li><a href="">facebook</a></li>
+            <li><a href="">linkedin</a></li>
+            <li><a href="">twitter</a></li>
+            <li><a href="">google+</a></li>
+            <li><a href="">sign up</a></li>
+            <li><a href="">sign in</a></li>
+            <li><a href="">search</a></li>
+        </ul>
+    </footer>
+    <div id="underfooter"></div>
+
+    <script src="mustache.min.js"></script>
+    <script src="feedback_source.js"></script>
+    <script src="vv_script.js"></script>
+</body>
+</html>
