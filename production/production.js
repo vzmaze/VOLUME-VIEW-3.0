@@ -34,7 +34,7 @@ window.onload = () => {
             if(i1 == nav.length)
                 clearInterval(t1);
         }, 500)
-    }, 5000);
+    }, 1000);
 }
 
 let k; //количество отображаемых iframes на странице - 1 или 2
@@ -63,9 +63,9 @@ if(videos.length <= k) {
                 element.style.transform = 'translateY'+'('+ -i*position+'px'+')';
             }
         });
-        if(i < Math.floor(videos.length/k))
+        if(i < Math.ceil(videos.length/k))
             i++;
-            // console.log(i);
+            console.log("i = "+i);
     });
     
     arrows[0].addEventListener("click", () => {
