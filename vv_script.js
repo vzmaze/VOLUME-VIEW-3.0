@@ -321,6 +321,29 @@ serviceDescriptions[0].style.opacity = 1;        //а также описани�
 
 serviceElements.forEach(li => {
     li.addEventListener("click", () => { //вешаем на каждый li обработчик события
+        if(li.classList.contains("services_selected")){
+            switch(serviceElements.indexOf(li)) {
+                case 0:
+                    window.open("./production/travel.html", "_blank");
+                break;
+                case 1:
+                    window.open("./production/business.html", "_blank");
+                break;
+                case 2:
+                    window.open("./production/promo.html", "_blank");
+                break;
+                case 3:
+                    window.open("./production/music.html", "_blank");
+                break;
+                case 4:
+                    window.open("./production/event.html", "_blank");
+                break;
+                // case 5:
+                //     window.open("./production/photo.html", "_blank");
+                // break;
+            }            
+            window.focus();
+        }
         for(let i=0; i<serviceElements.length; i++) {
             if(serviceElements[i].classList.contains("services_selected")){//выключаем ранее включенный эл-т
                 serviceElements[i].classList.remove("services_selected");

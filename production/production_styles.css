@@ -18,7 +18,7 @@ a {
     font-family: "Playfair Display SC", "Times New Roman", serif;
     text-align: center;
     font-size: 60px;
-    color: #b69b67;
+    color: rgb(182, 155, 103);
 }
 .prod_group {
     display: flex;
@@ -67,8 +67,11 @@ iframe {
     font-size: 25px;
     color: #b4b4b4;
     margin-top: 50px;
-    padding-left: 50px;
+    padding: 10px;
     margin-right: 10%;
+    /* text-shadow: 2px 2px black; */
+    background-color: rgba(39, 39, 39, 0.95);
+    height: 100%;
 }
 .arrows_up_down {
     width: 48px;
