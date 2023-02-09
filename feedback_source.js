@@ -23,10 +23,10 @@ let feedbackSource = [
 ];
 let template = document.querySelector("#feedback_template").innerHTML;
 let output = document.querySelector("#feedbacks_div");
-let feedbackShown = [];
+let feedbackShown = [];//сохраним сюда три выбранные отзыва
 for(let i=0; i<3; i++){
-    let random_f = Math.floor(Math.random()*feedbackSource.length);
-    while(feedbackShown.some(element=>{return element === random_f})){
+    let random_f = Math.floor(Math.random()*feedbackSource.length);//случайное число от 0 до 3х
+    while(feedbackShown.some(element=>{return element === random_f})){//выбирать новое, если такое уже есть в массиве
         random_f = Math.floor(Math.random()*feedbackSource.length);
     }
     const user = feedbackSource[random_f];

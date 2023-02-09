@@ -302,9 +302,9 @@ function checkDescrSize() {
 }
 checkDescrSize();
 
-window.addEventListener("resize", () => {
-    window.location.reload();
-});
+// window.addEventListener("resize", () => {
+//     window.location.reload();
+// });
 
 function changeBGPosition(imgNumber) {
     services.style.backgroundPosition = ServicesBGStyles[imgNumber].x + "%"+ " "
