@@ -1,4 +1,4 @@
-window.addEventListener("resize", () => {
+window.addEventListener("orientationchange", () => {
     window.location.reload();
 });
 
@@ -18,8 +18,9 @@ let t = setInterval(() => {
 //считываем iframe видео со страницы и, если их больше 2х, добавляем эл-ты упр.
 let arrows = document.querySelectorAll(".arrows_up_down");
 let videos = Array.from(document.querySelectorAll('iframe'));
+// console.log("Количество видео на странице: " + videos.length);
 window.onload = () => {
-    let t = setTimeout(()=>{
+    // let t = setTimeout(()=>{
         videos.forEach(vid => {
             crossDissolve(vid);
             document.querySelector("#frame").style.background = "none";
@@ -33,7 +34,7 @@ window.onload = () => {
             if(i1 == nav.length)
                 clearInterval(t1);
         }, 500)
-    }, 1000);
+    // }, 1000);
 }
 
 let k; //количество отображаемых iframes на странице - 1 или 2
