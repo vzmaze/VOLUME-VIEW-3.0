@@ -305,6 +305,9 @@ checkDescrSize();
 // window.addEventListener("resize", () => {
 //     window.location.reload();
 // });
+window.addEventListener("orientationchange", () => {
+    window.location.reload();
+});
 
 function changeBGPosition(imgNumber) {
     services.style.backgroundPosition = ServicesBGStyles[imgNumber].x + "%"+ " "
