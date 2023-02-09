@@ -16,9 +16,19 @@ let feedbackSource = [
         text: "Working with thise guys was an astonishing expirience for me. I was pleased with theyre work.",
     },
     {
-        img: "./img/feedback/user_icons/sarah_robinson.jpg",
+        img: "./img/feedback/user_icons/kapibara.jpg",
         name: "Kapibara",
         text: "Ка-пи-бааа-раа... капибаракапибаракапибара..."
+    },
+    {
+        img: "./img/feedback/user_icons/kapibara2.jpg",
+        name: "Kapibara2",
+        text: "Ка-пи-бааа-раа... капибаракапибаракапибара..."
+    },
+    {
+        img: "./img/feedback/user_icons/squirrel.jpg",
+        name: "Squirrel",
+        text: "Привіт! Парк наталка на зв'язку! Дякуємо за горішки)))"
     }
 ];
 let template = document.querySelector("#feedback_template").innerHTML;
@@ -38,5 +48,19 @@ for(let i=0; i<3; i++){
 
 let allFeedbacksBtn = document.querySelector("#feedback_footer");
 allFeedbacksBtn.addEventListener("click", ()=>{
-    alert("Soon...");
+    output.innerHTML = "";
+    let random_f2;
+    for(let i=0; i<3; i++){
+        do {
+            random_f2 = Math.floor(Math.random()*feedbackSource.length);
+            console.log(random_f2);
+        } while(feedbackShown.some(element => {return element === random_f2}))
+        feedbackShown[i] = random_f2;
+        const user = feedbackSource[random_f2];
+        console.log("Feedback 2: "+feedbackShown);
+        let feedback = Mustache.render(template, user);
+        output.insertAdjacentHTML("beforeend", feedback);        
+    }
+    
+
 })
