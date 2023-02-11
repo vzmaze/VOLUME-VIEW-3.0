@@ -6,20 +6,26 @@ window.addEventListener("orientationchange", () => {
 let descr = document.querySelector("p.prod_description");
 let descrCopy = descr.innerHTML;
 descr.innerHTML = "";
-let i = 0;
-let t = setInterval(() => {
-    descr.innerHTML += descrCopy[i];
-    i++;
-    if(i == descrCopy.length){
-        clearInterval(t);
-    }
-}, 6);
 
-//считываем iframe видео со страницы и, если их больше 2х, добавляем эл-ты упр.
 let arrows = document.querySelectorAll(".arrows_up_down");
 let videos = Array.from(document.querySelectorAll('iframe'));
-// console.log("Количество видео на странице: " + videos.length);
-window.onload = () => {
+
+function textAnimatIn(speed) {
+    let promise = new Promise(function(resolve) {
+        let i = 0;
+        let t = setInterval(() => {
+            descr.innerHTML += descrCopy[i];
+            i++;
+            if(i == descrCopy.length){
+                clearInterval(t);
+                resolve();
+            }
+        }, speed);
+        
+    });
+    return promise;
+}
+textAnimatIn(6).then(function(){
     let t = setTimeout(()=>{
         videos.forEach(vid => {
             crossDissolve(vid);
@@ -35,7 +41,30 @@ window.onload = () => {
                 clearInterval(t1);
         }, 500)
     }, 1000);
-}
+});
+
+
+
+//считываем iframe видео со страницы и, если их больше 2х, добавляем эл-ты упр.
+
+// console.log("Количество видео на странице: " + videos.length);
+// window.onload = () => {
+//     let t = setTimeout(()=>{
+//         videos.forEach(vid => {
+//             crossDissolve(vid);
+//             document.querySelector("#frame").style.background = "none";
+//         });
+//         //анимация названий разделов
+//         let nav = Array.from(document.querySelector("#navigate_services").children);
+//         let i1 = 0;
+//         let t1 = setInterval(() => {
+//             crossDissolve(nav[i1]);
+//             i1++;
+//             if(i1 == nav.length)
+//                 clearInterval(t1);
+//         }, 500)
+//     }, 1000);
+// }
 
 let k; //количество отображаемых iframes на странице - 1 или 2
 let videoStyles = getComputedStyle(videos[0], null);
