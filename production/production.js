@@ -1,11 +1,38 @@
 window.addEventListener("orientationchange", () => {
     window.location.reload();
 });
+//выбираем фон
+if(window.matchMedia("(orientation: portrait)").matches){
+    let pageName = window.location.href;
+    if(pageName.includes("travel.html")) {
+        document.body.style.background = "url"+"("+"../img/services/service_1_small.jpg"+")"+","+"#"+303030;
+        document.body.style.backgroundPosition = "center";
+        document.body.style.backgroundRepeat = "no-repeat";
+    } else if(pageName.includes("business.html")){
+        document.body.style.background = "url"+"("+"../img/services/service_2_portrait.jpg"+")"+","+"#"+303030;
+    } else if(pageName.includes("music.html")){
+        document.body.style.background = "url"+"("+"../img/services/service_4_small.jpg"+")"+","+"#"+303030;
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundPositionY = "center";
+    } else if(pageName.includes("event.html")){
+        document.body.style.background = "url"+"("+"../img/services/service_5_small.jpg"+")"+","+"#"+303030;
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundPositionY = "center";
+    }
+}
 
 //анимация для текста
 let descr = document.querySelector("p.prod_description");
-let descrCopy = descr.innerHTML;
-descr.innerHTML = "";
+let descrCopy = descr.textContent;
+
+//сделаем высоту блока установленной изначально (из css height: auto)
+let height = parseInt(getComputedStyle(descr, false).height);
+if(navigator.userAgent.includes("OPR")){//для оперы увеличиваем высоту, т.к. текст занимает больше места
+    height += 25;
+}
+descr.style.height = height + "px";
+
+descr.textContent = "";
 
 let arrows = document.querySelectorAll(".arrows_up_down");
 let videos = Array.from(document.querySelectorAll('iframe'));
@@ -13,37 +40,36 @@ let videos = Array.from(document.querySelectorAll('iframe'));
 // let divVideos = document.querySelector(".videos");
 
 function textAnimatIn(speed) {
-    let promise = new Promise(function(resolve) {
         let i = 0;
         let t = setInterval(() => {
-            descr.innerHTML += descrCopy[i];
+            descr.textContent += descrCopy[i];
             i++;
             if(i == descrCopy.length){
                 clearInterval(t);
-                resolve();
             }
         }, speed);
-        
+}
+function loadVideos(){
+    let promise = new Promise(function() {
+        let t = setTimeout(()=>{
+            videos.forEach(vid => {
+                crossDissolve(vid);
+                document.querySelector("#frame").style.background = "none";
+            });
+            //анимация названий разделов
+            let nav = Array.from(document.querySelector("#navigate_services").children);
+            let i1 = 0;
+            let t1 = setInterval(() => {
+                crossDissolve(nav[i1]);
+                i1++;
+                if(i1 == nav.length)
+                    clearInterval(t1);
+            }, 500);
+        }, 1000);
     });
     return promise;
 }
-textAnimatIn(6).then(function(){
-    let t = setTimeout(()=>{
-        videos.forEach(vid => {
-            crossDissolve(vid);
-            document.querySelector("#frame").style.background = "none";
-        });
-        //анимация названий разделов
-        let nav = Array.from(document.querySelector("#navigate_services").children);
-        let i1 = 0;
-        let t1 = setInterval(() => {
-            crossDissolve(nav[i1]);
-            i1++;
-            if(i1 == nav.length)
-                clearInterval(t1);
-        }, 500)
-    }, 1000);
-});
+loadVideos().then(textAnimatIn(6));
 
 
 

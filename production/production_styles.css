@@ -476,7 +476,7 @@ footer {
     .prod_description {
         font-size: 17px;
         padding-left: 34px;
-        height: 170px;
+        height: auto;
     }
     #navigate_services {
         flex-direction: column;
@@ -498,7 +498,7 @@ footer {
         font-size: 40px;
     }
     .prod_description {
-        height: 194px;
+        height: auto;
     }
     iframe {
         width: 380px;
@@ -518,9 +518,9 @@ footer {
 @media only screen and (orientation: portrait) and (max-width: 380px) {
     .prod_description {
         padding-left: 48px;
-        height: 230px;
+        height: auto;
     }
     .prod_description {
-        height: 211px;
+        height: auto;
     }
 }
