@@ -9,8 +9,8 @@ descr.innerHTML = "";
 
 let arrows = document.querySelectorAll(".arrows_up_down");
 let videos = Array.from(document.querySelectorAll('iframe'));
-let frame = document.querySelector("#frame");
-let divVideos = document.querySelector(".videos");
+// let frame = document.querySelector("#frame");
+// let divVideos = document.querySelector(".videos");
 
 function textAnimatIn(speed) {
     let promise = new Promise(function(resolve) {
@@ -113,28 +113,25 @@ if(videos.length <= k) {
             });
         }        
     }
-    
     let startY = 0;
     let finalY = 0;
     
-    window.addEventListener("touchstart", (e)=>{
-        startY = e.touches[0].clientY;
-    });
-    window.addEventListener("touchmove", (e)=>{finalY = e.touches[0].clientY;});
-    window.addEventListener("touchend", ()=>{
-        if((finalY - startY) >= 50){
-            slideUp();
-            startY = 0;
-            finalY = 0;
-        } else if ((startY - finalY) >= 50) {
-            slideDown();
-            startY = 0;
-            finalY = 0;
-        }
+    // window.addEventListener("touchstart", (e)=>{
+    //     startY = e.touches[0].clientY;
+    // });
+    // window.addEventListener("touchmove", (e)=>{finalY = e.touches[0].clientY;});
+    // window.addEventListener("touchend", ()=>{
+    //     if((finalY - startY) >= 50){
+    //         slideUp();
+    //         startY = 0;
+    //         finalY = 0;
+    //     } else if ((startY - finalY) >= 50) {
+    //         slideDown();
+    //         startY = 0;
+    //         finalY = 0;
+    //     }
         
-    });
-
-    
+    // });
 }
 
 
