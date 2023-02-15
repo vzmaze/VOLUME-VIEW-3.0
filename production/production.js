@@ -9,6 +9,8 @@ descr.innerHTML = "";
 
 let arrows = document.querySelectorAll(".arrows_up_down");
 let videos = Array.from(document.querySelectorAll('iframe'));
+let frame = document.querySelector("#frame");
+let divVideos = document.querySelector(".videos");
 
 function textAnimatIn(speed) {
     let promise = new Promise(function(resolve) {
@@ -84,7 +86,9 @@ if(videos.length <= k) {
     let x = 0; //переменная для определения первого нажатия на кнопку "вверх"
     let position = parseInt(videoStyles.height)+parseInt(videoStyles.marginBottom)+4;
     let i = 0;
-    arrows[1].addEventListener("click", () => {
+    arrows[1].addEventListener("click", slideUp);
+    arrows[0].addEventListener("click", slideDown);
+    function slideUp() {
         x = 0; //обнуляем х (доп. дикремент будет произведен заново при наж. на кн. "вверх")
         videos.forEach(element => {
             i == 0 ? i++ : {}
@@ -95,9 +99,8 @@ if(videos.length <= k) {
         if(i < Math.ceil(videos.length/k))
             i++;
             console.log("i = "+i);
-    });
-    
-    arrows[0].addEventListener("click", () => {
+    }
+    function slideDown() {
         if(i > 0){
             if(x == 0 && k == 1){
                 i--; //при первом нажатии на кнопку "вверх" нужен дополнительный дикримент
@@ -109,7 +112,29 @@ if(videos.length <= k) {
                 element.style.transform = 'translateY'+'('+ -i*position+'px'+')';
             });
         }        
-    })
+    }
+    
+    let startY = 0;
+    let finalY = 0;
+    
+    window.addEventListener("touchstart", (e)=>{
+        startY = e.touches[0].clientY;
+    });
+    window.addEventListener("touchmove", (e)=>{finalY = e.touches[0].clientY;});
+    window.addEventListener("touchend", ()=>{
+        if((finalY - startY) >= 50){
+            slideUp();
+            startY = 0;
+            finalY = 0;
+        } else if ((startY - finalY) >= 50) {
+            slideDown();
+            startY = 0;
+            finalY = 0;
+        }
+        
+    });
+
+    
 }
 
 

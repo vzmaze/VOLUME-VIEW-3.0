@@ -431,6 +431,11 @@ h1{
     z-index: 1;
     text-shadow: 1px 2px 2px rgb(36, 36, 36);
 }
+/* .service_description { //фон под описаниями
+    padding: 10px;
+    background-color: rgba(39, 39, 39, 0.5);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+} */
 .service_description span {
     color: #b69b67;
     background-color: transparent;
@@ -445,7 +450,7 @@ h1{
     z-index: 6;
 }
 #business_descr {
-    margin-top: -50px;
+    margin-top: -70px;
     z-index: 5;
 }
 #promo_descr {
@@ -453,9 +458,11 @@ h1{
 }
 #music_descr {
     z-index: 3;
+    margin-top: -10px;
 }
 #event_descr {
     z-index: 2;
+    margin-top: -40px;
 }
 #photo_descr {
     z-index: 1;
