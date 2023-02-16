@@ -36,40 +36,42 @@ descr.textContent = "";
 
 let arrows = document.querySelectorAll(".arrows_up_down");
 let videos = Array.from(document.querySelectorAll('iframe'));
+
 // let frame = document.querySelector("#frame");
 // let divVideos = document.querySelector(".videos");
 
 function textAnimatIn(speed) {
+    let promise = new Promise(function(resolve){
         let i = 0;
         let t = setInterval(() => {
             descr.textContent += descrCopy[i];
             i++;
             if(i == descrCopy.length){
                 clearInterval(t);
+                resolve();
             }
         }, speed);
-}
-function loadVideos(){
-    let promise = new Promise(function() {
-        let t = setTimeout(()=>{
-            videos.forEach(vid => {
-                crossDissolve(vid);
-                document.querySelector("#frame").style.background = "none";
-            });
-            //анимация названий разделов
-            let nav = Array.from(document.querySelector("#navigate_services").children);
-            let i1 = 0;
-            let t1 = setInterval(() => {
-                crossDissolve(nav[i1]);
-                i1++;
-                if(i1 == nav.length)
-                    clearInterval(t1);
-            }, 500);
-        }, 1000);
-    });
+    })
     return promise;
 }
-loadVideos().then(textAnimatIn(6));
+function loadVideos(){
+    let t = setTimeout(()=>{
+        videos.forEach(vid => {
+        crossDissolve(vid);
+        document.querySelector("#frame").style.background = "none";
+    });
+    //анимация названий разделов
+    let nav = Array.from(document.querySelector("#navigate_services").children);
+    let i1 = 0;
+    let t1 = setInterval(() => {
+        crossDissolve(nav[i1]);
+        i1++;
+        if(i1 == nav.length)
+            clearInterval(t1);
+    }, 500);
+    }, 1000);
+}
+textAnimatIn(6).then(loadVideos());
 
 
 

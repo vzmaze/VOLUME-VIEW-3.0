@@ -1831,7 +1831,7 @@
             margin-left: 0;
             padding-right: 0;
         }
-}
+}}
 @media (orientation: portrait) and (max-device-width: 500px) /*and (max-device-height: 915px)*/ {
     body {
         width: 412px;
@@ -2123,6 +2123,11 @@
     }
     #underfooter {
         height: 333px;
+    }
+}
+@media (orientation: portrait) and (max-width: 450px) and (max-height: 745px) {
+    #services {
+        height: auto;
     }
 }
 @media (orientation: portrait) and (max-width: 400px) {

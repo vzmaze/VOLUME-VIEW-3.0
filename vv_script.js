@@ -291,6 +291,14 @@ function checkDescrSize() {
         sbgs5.x = 70; sbgs5.y = 15;
         sbgs6.x = 60; sbgs6.y = 30;
     }
+    else if(window.matchMedia("(max-device-width: 450px) and (orientation: portrait) and (max-device-height: 745px)").matches) {
+        sbgs1.x = 0; sbgs1.y = 0;
+        sbgs2.x = -72; sbgs2.y = -94;
+        sbgs3.x = 70; sbgs3.y = 69;
+        sbgs4.x = 73; sbgs4.y = 2;
+        sbgs5.x = -4; sbgs5.y = -51;
+        sbgs6.x = 80; sbgs6.y = 213;
+    }
     else if(window.matchMedia("(max-device-width: 400px) and (orientation: portrait)").matches) {
         sbgs1.x = 10; sbgs1.y = 25;
         sbgs2.x = -40; sbgs2.y = 70;
