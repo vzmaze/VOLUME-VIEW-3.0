@@ -132,16 +132,23 @@ if(window.matchMedia("(max-width: 1400px) and (orientation: landscape)").matches
     scrollToFeedbacks = 2650;
     scrollToContacts = 4050;
     scrollToContactUS = 3250;
-} 
+} else if (window.matchMedia("(orientation: portrait) and (max-device-width: 450px) and (max-device-height: 745px)").matches && bodyWidth <= 412) {
+    scrollToServices = 740;
+    scrollToPortfolio = 1580;
+    scrollToFeedbacks = 2505;
+    scrollToContacts = 3860;
+    scrollToContactUS = 3250;
+    console.log("5.1");
+}
 else if (window.matchMedia("(orientation: portrait) and (max-device-width: 412px)").matches && bodyWidth <= 412) {
-    scrollToServices = 960;
-    scrollToPortfolio = 1770;
-    scrollToFeedbacks = 2650;
-    scrollToContacts = 4050;
+    scrollToServices = 800;
+    scrollToPortfolio = 1620;
+    scrollToFeedbacks = 2555;
+    scrollToContacts = 3910;
     scrollToContactUS = 3250;
     console.log("5");
 } else if (window.matchMedia("(orientation: portrait) and (max-device-width: 500px)").matches && bodyWidth <= 412) {
-    scrollToServices = 900;
+    scrollToServices = 800;
     scrollToPortfolio = 1700;
     scrollToFeedbacks = 2650;
     scrollToContacts = 4050;

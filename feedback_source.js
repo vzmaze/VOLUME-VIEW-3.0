@@ -41,7 +41,7 @@ for(let i=0; i<3; i++){
     }
     const user = feedbackSource[random_f];
     feedbackShown[i] = random_f;
-    console.log(feedbackShown);//удалить
+    // console.log(feedbackShown);//удалить
     let feedback = Mustache.render(template, user);
     output.insertAdjacentHTML("beforeend", feedback);
 }
@@ -53,11 +53,11 @@ allFeedbacksBtn.addEventListener("click", ()=>{
     for(let i=0; i<3; i++){
         do {
             random_f2 = Math.floor(Math.random()*feedbackSource.length);
-            console.log(random_f2);
+            // console.log(random_f2);
         } while(feedbackShown.some(element => {return element === random_f2}))
         feedbackShown[i] = random_f2;
         const user = feedbackSource[random_f2];
-        console.log("Feedback 2: "+feedbackShown);
+        // console.log("Feedback 2: "+feedbackShown);
         let feedback = Mustache.render(template, user);
         output.insertAdjacentHTML("beforeend", feedback);        
     }
