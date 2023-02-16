@@ -353,9 +353,9 @@ serviceElements.forEach(li => {
                 case 4:
                     window.open("./production/event.html", "_blank");
                 break;
-                // case 5:
-                //     window.open("./production/photo.html", "_blank");
-                // break;
+                case 5:
+                    window.open("./production/docs.html", "_blank");
+                break;
             }            
             window.focus();
         }
@@ -505,24 +505,40 @@ let example12 = new PortfolioExample("musicVideos", "./img/portfolio/12.jpg", "6
 example12.createAndAddToDOM();
 
 let example13 = new PortfolioExample("travelFilms", "./img/portfolio/09.jpg", "TOUR de UKRAINE МИКОЛАЇВЩИНА", "З циклу туристичних фільмів про подорожі Україною.", "travel фільми");
-example9.createAndAddToDOM();
+example13.createAndAddToDOM();
 
 let example14 = new PortfolioExample("businessStories", "./img/portfolio/10.jpg", "ДИЗАЙНЕРИ ІНТЕР'ЄРІВ",
                 "Хвилинний промо-ролик на замовлення команди дизайнерів.", "бізнес stories");
-example10.createAndAddToDOM();
+example14.createAndAddToDOM();
 
 let example15 = new PortfolioExample("promoRoliki", "./img/portfolio/11.jpg", "PUBG TEAMS INTRODUCTION",
                 "Промо длля PUBG Europe Leage", "promo ролики");
-example11.createAndAddToDOM();
+example15.createAndAddToDOM();
 
 let example16 = new PortfolioExample("musicVideos", "./img/portfolio/12.jpg", "600V~66A «UNIQUE MAN»",
                 "Перше офіційне відео рок-гурту 600V~66A", "музичні кліпи");
-example12.createAndAddToDOM();
+example16.createAndAddToDOM();
+
+let example17 = new PortfolioExample("docs", "./img/portfolio/18.jpg", "ЯДРЕНА КОМАНДА",
+                `ЧОРНОБИЛЬ. ФУТБОЛЬНИЙ КЛУБ (операторська робота у співпраці)`, "документальне");
+example17.createAndAddToDOM();
+
+let example18 = new PortfolioExample("docs", "./img/portfolio/17.jpg", "ХРОНІКИ ТИЛУ",
+                "Як волонтери роблять бронежилети в Україні", "документальне");
+example18.createAndAddToDOM();
+
+let example19 = new PortfolioExample("docs", "./img/portfolio/19.jpg", "ХРОНІКИ ТИЛУ",
+                "Як розміщують переселенців", "документальне");
+example19.createAndAddToDOM();
+
+let example20 = new PortfolioExample("docs", "./img/portfolio/20.jpg", "ХРОНІКИ ТИЛУ",
+                "Гуманітарна допомога Україні", "документальне");
+example20.createAndAddToDOM();
 
 let examplesArray = new Array; //создадим массив из созданных объектов для портфолио
 examplesArray.push(example1, example2, example3, example4,
                     example5, example6, example7, example8,
-                        example9, example10, example11, example12, example13, example14, example15, example16);
+                        example9, example10, example11, example12, example13, example14, example15, example16, example17, example18, example19, example20);
 let filtredPortfolio = examplesArray; //копия массива для фильтрации
 
 function show4Examples(array){ //функция для отображения только 4х первых эл-в м-ва
@@ -593,8 +609,8 @@ pfolioSel.addEventListener("change", ()=> { //об-к событий для sele
         case "eventVideos":
             anyAcceptAll("eventVideos");
         break;
-        case "photo":
-            anyAcceptAll("photo");
+        case "docs":
+            anyAcceptAll("docs");
         break;
     }
 });
