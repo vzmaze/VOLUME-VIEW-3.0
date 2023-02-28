@@ -140,7 +140,7 @@ if(window.matchMedia("(max-width: 1400px) and (orientation: landscape)").matches
     scrollToContactUS = 3250;
     console.log("5.1");
 }
-else if (window.matchMedia("(orientation: portrait) and (max-device-width: 412px)").matches && bodyWidth <= 412) {
+else if (window.matchMedia("(orientation: portrait) and (max-device-width: 414px)").matches && bodyWidth <= 414) {
     scrollToServices = 800;
     scrollToPortfolio = 1620;
     scrollToFeedbacks = 2555;
@@ -457,7 +457,7 @@ class PortfolioExample {
     }
 }
 
-let example1 = new PortfolioExample("travelFilms", "./img/portfolio/01_.jpg", "TOUR de UKRAINE Івано-Франківщина",
+let example1 = new PortfolioExample("travelFilms", "./img/portfolio/ivano-frankivshina.jpg", "TOUR de UKRAINE Івано-Франківщина",
 "З циклу туристичних фільмів про подорожі Україною.", "travel фільми");
 example1.createAndAddToDOM();
 
@@ -469,16 +469,14 @@ let example3 = new PortfolioExample("promoRoliki", "./img/portfolio/03_2.jpg", "
 "Презентація", "промо ролики");
 example3.createAndAddToDOM();
 
-let example4 = new PortfolioExample("musicVideos", "./img/portfolio/04_2.jpg", "PRYMARA - Гедоністи (Official Video)",
-                "Режисер: Сергій Жерехов", "музичні кліпи");
+let example4 = new PortfolioExample("musicVideos", "./img/portfolio/04_2.jpg", "PRYMARA - Гедоністи (Official Video)", "Режисер: Сергій Жерехов", "музичні кліпи");
 example4.createAndAddToDOM();
 
 let example5 = new PortfolioExample("travelFilms", "./img/portfolio/05.jpg", "TOUR de UKRAINE ЗАКАРПАТТЯ",
                 "З циклу туристичних фільмів про подорожі Україною.", "travel фільми");
 example5.createAndAddToDOM();
 
-let example6 = new PortfolioExample("businessStories", "./img/portfolio/06.jpg", "«Чорноморка» і «Кози та Матроси»",
-                "Відпочинок під Одесою.", "бізнес stories");
+let example6 = new PortfolioExample("businessStories", "./img/portfolio/06.jpg", "«Чорноморка» і «Кози та Матроси»", "Відпочинок під Одесою.", "бізнес stories");
 example6.createAndAddToDOM();
 
 let example7 = new PortfolioExample("promoRoliki", "./img/portfolio/07.jpg", "INTERLINE OEG 933",
@@ -489,7 +487,7 @@ let example8 = new PortfolioExample("musicVideos", "./img/portfolio/08.jpg", "60
                 "Живе виконання в м. Одеса", "музичні кліпи");
 example8.createAndAddToDOM();
 
-let example9 = new PortfolioExample("travelFilms", "./img/portfolio/09.jpg", "TOUR de UKRAINE МИКОЛАЇВЩИНА", "З циклу туристичних фільмів про подорожі Україною.", "travel фільми");
+let example9 = new PortfolioExample("travelFilms", "./img/portfolio/mykolayivshina.jpg", "TOUR de UKRAINE МИКОЛАЇВЩИНА", "З циклу туристичних фільмів про подорожі Україною.", "travel фільми");
 example9.createAndAddToDOM();
 
 let example10 = new PortfolioExample("businessStories", "./img/portfolio/10.jpg", "ДИЗАЙНЕРИ ІНТЕР'ЄРІВ",
@@ -504,19 +502,18 @@ let example12 = new PortfolioExample("musicVideos", "./img/portfolio/12.jpg", "6
                 "Перше офіційне відео рок-гурту 600V~66A", "музичні кліпи");
 example12.createAndAddToDOM();
 
-let example13 = new PortfolioExample("travelFilms", "./img/portfolio/09.jpg", "TOUR de UKRAINE МИКОЛАЇВЩИНА", "З циклу туристичних фільмів про подорожі Україною.", "travel фільми");
+let example13 = new PortfolioExample("travelFilms", "./img/portfolio/01_.jpg", "TOUR de UKRAINE Івано-Франківщина Зимова", "З циклу туристичних фільмів про подорожі Україною.", "travel фільми");
 example13.createAndAddToDOM();
 
-let example14 = new PortfolioExample("businessStories", "./img/portfolio/10.jpg", "ДИЗАЙНЕРИ ІНТЕР'ЄРІВ",
-                "Хвилинний промо-ролик на замовлення команди дизайнерів.", "бізнес stories");
+let example14 = new PortfolioExample("businessStories", "./img/portfolio/fordmax.jpg", "ПРЕЗЕНТАЦІЯ FORD TRUCKS F-MAX",
+                "Презентація Ford Trucks F-Max у Києві", "бізнес stories");
 example14.createAndAddToDOM();
 
-let example15 = new PortfolioExample("promoRoliki", "./img/portfolio/11.jpg", "PUBG TEAMS INTRODUCTION",
-                "Промо длля PUBG Europe Leage", "promo ролики");
+let example15 = new PortfolioExample("promoRoliki", "./img/portfolio/blackcity.jpg", "САЛОН КРАСИ \"BLACK CITY\"", "Промо-ролик на замовлення салону краси", "promo ролики");
 example15.createAndAddToDOM();
 
-let example16 = new PortfolioExample("musicVideos", "./img/portfolio/12.jpg", "600V~66A «UNIQUE MAN»",
-                "Перше офіційне відео рок-гурту 600V~66A", "музичні кліпи");
+let example16 = new PortfolioExample("promoRoliki", "./img/portfolio/my_vdoma.jpg", "МИ ВДОМА",
+                "До річниці протистояння українського народу повтомасштабному вторгненню", "промо-роліки");
 example16.createAndAddToDOM();
 
 let example17 = new PortfolioExample("docs", "./img/portfolio/18.jpg", "ЯДРЕНА КОМАНДА",
@@ -535,23 +532,32 @@ let example20 = new PortfolioExample("docs", "./img/portfolio/20.jpg", "ХРОН
                 "Гуманітарна допомога Україні", "документальне");
 example20.createAndAddToDOM();
 
+let example21 = new PortfolioExample("docs", "./img/portfolio/20.jpg", "ХРОНІКИ ТИЛУ",
+                "Гуманітарна допомога Україні", "документальне");
+example21.createAndAddToDOM();
+
 let examplesArray = new Array; //создадим массив из созданных объектов для портфолио
 examplesArray.push(example1, example2, example3, example4,
                     example5, example6, example7, example8,
-                        example9, example10, example11, example12, example13, example14, example15, example16, example17, example18, example19, example20);
+                        example9, example10, example11, example12, example13, example14, example15, example16, example17, example18, example19, example20, example21);
 let filtredPortfolio = examplesArray; //копия массива для фильтрации
 
-function show4Examples(array){ //функция для отображения только 4х первых эл-в м-ва
-    if(array.length >= 4){
-        for(let i=4; i < array.length; i++) {
-            document.querySelector("#"+array[i].id).style.display = "none";
-            // console.log(array[i].id + " display set to none.");
+function show4Examples(array){ //функция для отображения только 4х (или сколько есть) первых эл-в м-ва
+        if(array.length > 4){
+            for(let i=4; i < array.length; i++) {
+                document.querySelector("#"+array[i].id).style.display = "none";
+                // console.log(array[i].id + " display set to none.");
+            }
+            for(let i=0; i < 4; i++) {
+                document.querySelector("#"+array[i].id).style.display = "flex";
+                // console.log(array[i].id + " display set to 'flex'.");
+            }
+        } else {
+            for(let i=0; i < array.length; i++) {
+                document.querySelector("#"+array[i].id).style.display = "flex";
+                // console.log(array[i].id + " display set to 'flex'.");
+            }
         }
-        for(let i=0; i < 4; i++) {
-            document.querySelector("#"+array[i].id).style.display = "flex";
-            // console.log(array[i].id + " display set to 'flex'.");
-        }
-    }
 }
 show4Examples(examplesArray);
 
@@ -585,6 +591,7 @@ pfolioSel.addEventListener("change", ()=> { //об-к событий для sele
         i = findIndexInPortfolio(filtredPortfolio);
         firstPageBtnUpdate(filtredPortfolio, i);
         lastPageBtn.textContent = filtredPortfolio.length;
+        lastPageBtnUpdate(filtredPortfolio);
     }
     switch(pfolioSel.value){
         case "all": //в зависимости от св-ва category объектов, проводим фильтрацию
@@ -593,6 +600,7 @@ pfolioSel.addEventListener("change", ()=> { //об-к событий для sele
             i = findIndexInPortfolio(examplesArray);
             firstPageBtnUpdate(examplesArray, i);
             lastPageBtn.textContent = examplesArray.length;
+            lastPageBtnUpdate(examplesArray);
         break;
         case "travelFilms":
             anyAcceptAll("travelFilms");
@@ -617,25 +625,18 @@ pfolioSel.addEventListener("change", ()=> { //об-к событий для sele
 
 function firstPageBtnUpdate(array, index){
     if(index >= 4){
-        firstPageBtn.addEventListener("click", ()=>{
+        firstPageBtn.onclick = () => {
             show4Examples(array);
             checkPrevBtnToWork(findIndexInPortfolio(array));
             lastPageBtnUpdate(array);
             if(findIndexInPortfolio(array) == 0){
                 btnChangeStatus(firstPageBtn, false);
             }
-        });
+        }
         btnChangeStatus(firstPageBtn, true);
     }
     if(index < 4){
-        firstPageBtn.removeEventListener("click", ()=>{
-            show4Examples(array);
-            checkPrevBtnToWork(findIndexInPortfolio(array));
-            lastPageBtnUpdate(array);
-            if(findIndexInPortfolio(array) == 0){
-                btnChangeStatus(firstPageBtn, false);
-            }
-        });
+        firstPageBtn.onclik = null;
         btnChangeStatus(firstPageBtn, false);
     }
 }
@@ -668,7 +669,7 @@ function checkNextBtnToWork(index, array){
         btnChangeStatus(portfolioPagesBtnNext, true);
         portfolioPagesBtnNext.addEventListener("click", nextBtnWork);    
     }
-    if(array.length <= 4){
+    if(array.length <= 4 || index+4 > array.length){
         btnChangeStatus(portfolioPagesBtnNext, false);
         portfolioPagesBtnNext.removeEventListener("click", nextBtnWork);
     }
@@ -686,9 +687,7 @@ function checkPrevBtnToWork(index){
 
 function lastPageBtnUpdate(array){
     if(array.length > 4){
-        let index = array.findIndex(item=>{
-            return document.querySelector("#"+item.id).style.display == "flex";
-        });
+        let index = findIndexInPortfolio(array);
         if(index < array.length-4) {
             lastPageBtn.addEventListener("click", lastPageBtnWork);
             btnChangeStatus(lastPageBtn, true);
@@ -699,6 +698,7 @@ function lastPageBtnUpdate(array){
     }
     if(array.length <= 4){
         lastPageBtn.removeEventListener("click", lastPageBtnWork);
+        btnChangeStatus(lastPageBtn, false);
     }
 }
 lastPageBtnUpdate(examplesArray);
@@ -708,8 +708,15 @@ function lastPageBtnWork(){
     if(pfolioSel.value == "all"){
         index = findIndexInPortfolio(examplesArray);
         hideExamples(examplesArray);
-        for(let i = examplesArray.length-4; i < examplesArray.length; i++) {
-            document.querySelector("#"+examplesArray[i].id).style.display = "flex";
+        if(Number.isInteger(examplesArray.length / 4) && examplesArray.length >= 8) {
+            for(let i = examplesArray.length-4; i < examplesArray.length; i++) {
+                document.querySelector("#"+examplesArray[i].id).style.display = "flex";
+            }
+        } else {
+            let length = examplesArray.length;
+            for(let i = length - length % 4; i < length; i++) {
+                document.querySelector("#"+examplesArray[i].id).style.display = "flex";
+            }
         }
         portfolioPagesBtnPrev.addEventListener("click", prevBtnWork); //делаем активной кнопку PREV
         btnChangeStatus(portfolioPagesBtnPrev, true);
@@ -721,12 +728,20 @@ function lastPageBtnWork(){
     } else {
         index = findIndexInPortfolio(filtredPortfolio);
         hideExamples(filtredPortfolio);
-        for(let i = examplesArray.length-4; i < examplesArray.length; i++) {
-            document.querySelector("#"+examplesArray[i].id).style.display = "flex";
+        if(Number.isInteger(filtredPortfolio.length / 4) && filtredPortfolio.length >= 8) {
+            for(let i = filtredPortfolio.length-4; i < filtredPortfolio.length; i++) {
+                document.querySelector("#"+filtredPortfolio[i].id).style.display = "flex";
+            }
+        } else {
+            let length = filtredPortfolio.length;
+            for(let i = length - length % 4; i < length; i++) {
+                document.querySelector("#"+filtredPortfolio[i].id).style.display = "flex";
+            }
         }
         portfolioPagesBtnPrev.addEventListener("click", prevBtnWork); //делаем активной кнопку PREV
         btnChangeStatus(portfolioPagesBtnPrev, true);
         index = findIndexInPortfolio(filtredPortfolio);
+        console.log("index = "+index);
         firstPageBtnUpdate(filtredPortfolio, index); // обновляем кнопку "1"
         btnChangeStatus(portfolioPagesBtnNext, false); //делаем неактивной кнопку NEXT
         portfolioPagesBtnNext.removeEventListener("click", nextBtnWork);
@@ -740,9 +755,16 @@ function nextBtnWork(){
     let index = -1;
     if(pfolioSel.value == "all"){
         index = findIndexInPortfolio(examplesArray);
+        // console.log("index = " + index);
         hideExamples(examplesArray);
-        for(let i=index+4; i < index+8; i++) {
-            document.querySelector("#"+examplesArray[i].id).style.display = "flex";
+        if(examplesArray[index+8]){
+            for(let i=index+4; i < index+8; i++) {
+                document.querySelector("#"+examplesArray[i].id).style.display = "flex";
+            }
+        } else {
+            for(let i=index+4; i < examplesArray.length; i++) {
+                document.querySelector("#"+examplesArray[i].id).style.display = "flex";
+            }
         }
         portfolioPagesBtnPrev.addEventListener("click", prevBtnWork); //делаем активной кнопку PREV
         btnChangeStatus(portfolioPagesBtnPrev, true);
@@ -755,18 +777,27 @@ function nextBtnWork(){
         }
     } else {
         index = findIndexInPortfolio(filtredPortfolio);
-        hideExamples(filtredPortfolio);
-        for(let i=index+4; i < index+8; i++) {
-            document.querySelector("#"+filtredPortfolio[i].id).style.display = "flex";
-        }
-        portfolioPagesBtnPrev.addEventListener("click", prevBtnWork); //делаем активной кнопку PREV
-        btnChangeStatus(portfolioPagesBtnPrev, true);
-        index = findIndexInPortfolio(filtredPortfolio);
-        firstPageBtnUpdate(filtredPortfolio, index); // обновляем кнопку "1"
-        if(index+5 > filtredPortfolio.length){
+        if(index+5 <= filtredPortfolio.length) {
+            hideExamples(filtredPortfolio);
+            if(filtredPortfolio[index+8]){
+                for(let i=index+4; i < index+8; i++) {
+                    document.querySelector("#"+filtredPortfolio[i].id).style.display = "flex";
+                }
+            } else {
+                for(let i=index+4; i < filtredPortfolio.length; i++) {
+                    document.querySelector("#"+filtredPortfolio[i].id).style.display = "flex";
+                }
+            }
+            portfolioPagesBtnPrev.addEventListener("click", prevBtnWork); //делаем активной кнопку PREV
+            btnChangeStatus(portfolioPagesBtnPrev, true);
+            index = findIndexInPortfolio(filtredPortfolio);
+            firstPageBtnUpdate(filtredPortfolio, index); // обновляем кнопку "1"
+            checkNextBtnToWork(filtredPortfolio, index);
+            lastPageBtnUpdate(filtredPortfolio);//делаем неактивной кнопку "99"
+        } else {
             btnChangeStatus(portfolioPagesBtnNext, false); //делаем неактивной кнопку NEXT
             portfolioPagesBtnNext.removeEventListener("click", nextBtnWork);
-            lastPageBtnUpdate(examplesArray);//делаем неактивной кнопку "99"
+            lastPageBtnUpdate(filtredPortfolio);//делаем неактивной кнопку "99"
         }
     }
 }
@@ -871,7 +902,8 @@ function check(element, time) {
         })
     })
 }
-
+document.querySelector("#feedback_section").addEventListener("mouseover", closeAllItems, true);
+document.querySelector("#services").addEventListener("mouseover", closeAllItems, true);
 function closeAllItems(){ //ЭТА ФУНКЦИЯ ПОКА НЕ ИСПОЛЬЗУЕТСЯ...
     portfolioItems.forEach(item => {
         if(getComputedStyle(item.lastElementChild).display != 'block')

@@ -359,7 +359,7 @@ h1{
     background-repeat: no-repeat;
     background-blend-mode: lighten;
     background-size: 70%;
-    height: 1000px;
+    height: 900px;
     margin: 0 auto;
 }
 
@@ -554,7 +554,7 @@ h1{
     background: transparent;
     color: #303030;
     font-weight: 500;
-    padding: 25px;
+    padding: 18px;
 }
 .small_text, .italic_text {
     font-size: 15px;

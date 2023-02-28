@@ -12,12 +12,12 @@
         width: 80px;
         height: 80px;
         right: 40px;
-        top: 250px;
+        /* top: 250px; */
     }
     #menu_div {
         width: 1522px;
         height: 690px;
-        top: 250px;
+        /* top: 250px; */
         right: 40px;
     }
     #sign_in_window {
@@ -25,6 +25,12 @@
         height: 675px;
         top: 250px; */
         left: 25%;
+    }
+}
+@media only screen and (max-width: 1700px) {
+    .width_of_window { /* стандартное положение и ширина */
+        width: 1400px;
+        margin: 0 auto;
     }
 }
 @media only screen and (max-width: 1600px) and (min-height: 1024px){
@@ -2458,20 +2464,42 @@
         height: 185px;
     }
 }
-@media (orientation: portrait) and (max-width: 400px) and (max-height: 600px) {
+@media (orientation: portrait) and (max-width: 400px) and (max-height: 750px) {
+    body {
+        width: 390px;
+    }
+    #menu_div {
+        width: 360px;
+    }
+    #services_list ul {
+        height: 695px;
+    }
+    .service_description {
+        width: 275px;
+    }
+    #business_descr {
+        margin-top: -35px;
+    }
     #promo_descr {
-        margin-top: -70px;
+        margin-top: -44px;
     }
     #music_descr {
-        margin-top: -60px;
+        margin-top: -33px;
     }
     #event_descr {
-        margin-top: -55px;
+        margin-top: -30px;
     }
     #docs_descr {
-        margin-top: -70px;
+        margin-top: -40px;
     }
     #portfolio {
+        width: 386px;
         margin-top: 75px;
+    }
+    #feedback_section {
+        width: 380px;
+    }
+    #contact_us {
+        margin: 0 auto;
     }
 }

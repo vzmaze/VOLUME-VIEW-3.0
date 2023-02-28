@@ -36,7 +36,7 @@ descr.textContent = "";
 
 let arrows = document.querySelectorAll(".arrows_up_down");
 let videos = Array.from(document.querySelectorAll('iframe'));
-
+// console.log("videos number is: "+videos.length);
 // let frame = document.querySelector("#frame");
 // let divVideos = document.querySelector(".videos");
 
@@ -120,13 +120,14 @@ if(videos.length <= k) {
         x = 0; //обнуляем х (доп. дикремент будет произведен заново при наж. на кн. "вверх")
         videos.forEach(element => {
             i == 0 ? i++ : {}
-            if(i < Math.floor(videos.length)){
+            if(i < videos.length){
                 element.style.transform = 'translateY'+'('+ -i*position+'px'+')';
             }
         });
-        if(i < Math.ceil(videos.length/k))
+        if(i < Math.ceil(videos.length-k)){
             i++;
-            console.log("i = "+i);
+            // console.log("i = "+i);
+        }
     }
     function slideDown() {
         if(i > 0){
