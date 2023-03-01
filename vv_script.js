@@ -462,7 +462,7 @@ let example1 = new PortfolioExample("travelFilms", "./img/portfolio/ivano-franki
 example1.createAndAddToDOM();
 
 let example2 = new PortfolioExample("businessStories", "./img/portfolio/02_2.jpg", "«INDULGENCE»",
-"ПРЕЗЕНТАЦІЯ ДОДАТКУ", "promo ролики");
+"ПРЕЗЕНТАЦІЯ ДОДАТКУ", "бізнес сторіс");
 example2.createAndAddToDOM();
 
 let example3 = new PortfolioExample("promoRoliki", "./img/portfolio/03_2.jpg", "FORD TRUCKS F-MAX",
@@ -532,14 +532,28 @@ let example20 = new PortfolioExample("docs", "./img/portfolio/20.jpg", "ХРОН
                 "Гуманітарна допомога Україні", "документальне");
 example20.createAndAddToDOM();
 
-let example21 = new PortfolioExample("docs", "./img/portfolio/20.jpg", "ХРОНІКИ ТИЛУ",
-                "Гуманітарна допомога Україні", "документальне");
+let example21 = new PortfolioExample("travelFilms", "./img/portfolio/vinnichina.jpg", "TOUR de UKRAINE Вінничина",
+                "З циклу туристичних фільмів про подорожі Україною.", "travel фільми");
 example21.createAndAddToDOM();
+
+let example22 = new PortfolioExample("travelFilms", "./img/portfolio/radomyshl.jpg", "TOUR de UKRAINE Радомишль",
+                "Замок на скелі та фортифікаційні секрети монахів.", "travel фільми");
+example22.createAndAddToDOM();
+
+let example23 = new PortfolioExample("travelFilms", "./img/portfolio/kryshtaleva2.jpg", "TOUR de UKRAINE Печера Кришталева", "Найкоштовніша і найлегша подорож у підземелля.", "travel фільми");
+example23.createAndAddToDOM();
+
+let example24 = new PortfolioExample("travelFilms", "./img/portfolio/mizhrichensky.jpg", "TOUR de UKRAINE Міжрічинський Парк", "Як вижити у болотах Полісся. Незламна Чернігівська область.", "travel фільми");
+example24.createAndAddToDOM();
+
+let example25 = new PortfolioExample("promoRoliki", "./img/portfolio/onova.jpg", "ONOVA GIS HUB",
+"Презентація", "промо ролики");
+example25.createAndAddToDOM();
 
 let examplesArray = new Array; //создадим массив из созданных объектов для портфолио
 examplesArray.push(example1, example2, example3, example4,
                     example5, example6, example7, example8,
-                        example9, example10, example11, example12, example13, example14, example15, example16, example17, example18, example19, example20, example21);
+                        example9, example10, example11, example12, example13, example14, example15, example16, example17, example18, example19, example20, example21, example22, example23, example24, example25);
 let filtredPortfolio = examplesArray; //копия массива для фильтрации
 
 function show4Examples(array){ //функция для отображения только 4х (или сколько есть) первых эл-в м-ва
@@ -592,6 +606,21 @@ pfolioSel.addEventListener("change", ()=> { //об-к событий для sele
         firstPageBtnUpdate(filtredPortfolio, i);
         lastPageBtn.textContent = filtredPortfolio.length;
         lastPageBtnUpdate(filtredPortfolio);
+        checkPrevBtnToWork(i);
+
+        //для мобильной версии на случай, когда меньше 4-х элементов
+        if(window.matchMedia("(max-device-width: 500px) and (orientation: portrait)").matches) {
+            switch (filtredPortfolio.length) {
+                case 4:
+                    document.querySelector("#portfolio_block").style.height = 640 + "px";
+                break;
+                case 3:
+                    document.querySelector("#portfolio_block").style.height = 480 + "px";
+                break;
+                default:
+                    document.querySelector("#portfolio_block").style.height = 640 + "px";
+            }
+        }
     }
     switch(pfolioSel.value){
         case "all": //в зависимости от св-ва category объектов, проводим фильтрацию
@@ -624,7 +653,7 @@ pfolioSel.addEventListener("change", ()=> { //об-к событий для sele
 });
 
 function firstPageBtnUpdate(array, index){
-    if(index >= 4){
+    if(index >= 4 && array.length > 4){
         firstPageBtn.onclick = () => {
             show4Examples(array);
             checkPrevBtnToWork(findIndexInPortfolio(array));
@@ -635,8 +664,12 @@ function firstPageBtnUpdate(array, index){
         }
         btnChangeStatus(firstPageBtn, true);
     }
-    if(index < 4){
+    if(index < 4 || array.length <= 4){
         firstPageBtn.onclik = null;
+        btnChangeStatus(firstPageBtn, false);
+    }
+    if(array.length <= 4) {
+        firstPageBtn.onclick = null;
         btnChangeStatus(firstPageBtn, false);
     }
 }
