@@ -607,26 +607,13 @@ pfolioSel.addEventListener("change", ()=> { //об-к событий для sele
         lastPageBtn.textContent = filtredPortfolio.length;
         lastPageBtnUpdate(filtredPortfolio);
         checkPrevBtnToWork(i);
-
-        //для мобильной версии на случай, когда меньше 4-х элементов
-        if(window.matchMedia("(max-device-width: 500px) and (orientation: portrait)").matches) {
-            switch (filtredPortfolio.length) {
-                case 4:
-                    document.querySelector("#portfolio_block").style.height = 640 + "px";
-                break;
-                case 3:
-                    document.querySelector("#portfolio_block").style.height = 480 + "px";
-                break;
-                default:
-                    document.querySelector("#portfolio_block").style.height = 640 + "px";
-            }
-        }
+        checkPortfolioHeight(filtredPortfolio, i);
     }
     switch(pfolioSel.value){
         case "all": //в зависимости от св-ва category объектов, проводим фильтрацию
-            console.log("в портфолио всего " + examplesArray.length + " элементов");
             show4Examples(examplesArray);
             i = findIndexInPortfolio(examplesArray);
+            checkPortfolioHeight(examplesArray, i);
             firstPageBtnUpdate(examplesArray, i);
             lastPageBtn.textContent = examplesArray.length;
             lastPageBtnUpdate(examplesArray);
@@ -652,9 +639,32 @@ pfolioSel.addEventListener("change", ()=> { //об-к событий для sele
     }
 });
 
+//для мобильной версии на случай, когда меньше 4-х элементов
+function checkPortfolioHeight(array, index){
+    if(window.matchMedia("(max-device-width: 500px) and (orientation: portrait)").matches) {
+        console.log("array.length - index = " + array.length + " - "+ index);
+        switch (array.length - index) {
+            case 4:
+                document.querySelector("#portfolio_block").style.height = 640 + "px";
+            break;
+            case 3:
+                document.querySelector("#portfolio_block").style.height = 480 + "px";
+            break;
+            case 2:
+                document.querySelector("#portfolio_block").style.height = 320 + "px";
+            break;
+            case 1:
+                document.querySelector("#portfolio_block").style.height = 160 + "px";
+            break;    
+            default:
+                document.querySelector("#portfolio_block").style.height = 640 + "px";
+        }
+    }
+}
 function firstPageBtnUpdate(array, index){
     if(index >= 4 && array.length > 4){
         firstPageBtn.onclick = () => {
+            checkPortfolioHeight(examplesArray, 0);
             show4Examples(array);
             checkPrevBtnToWork(findIndexInPortfolio(array));
             lastPageBtnUpdate(array);
@@ -754,6 +764,7 @@ function lastPageBtnWork(){
         portfolioPagesBtnPrev.addEventListener("click", prevBtnWork); //делаем активной кнопку PREV
         btnChangeStatus(portfolioPagesBtnPrev, true);
         index = findIndexInPortfolio(examplesArray);
+        checkPortfolioHeight(examplesArray, index);
         firstPageBtnUpdate(examplesArray, index); // обновляем кнопку "1"
         btnChangeStatus(portfolioPagesBtnNext, false); //делаем неактивной кнопку NEXT
         portfolioPagesBtnNext.removeEventListener("click", nextBtnWork);
@@ -774,7 +785,7 @@ function lastPageBtnWork(){
         portfolioPagesBtnPrev.addEventListener("click", prevBtnWork); //делаем активной кнопку PREV
         btnChangeStatus(portfolioPagesBtnPrev, true);
         index = findIndexInPortfolio(filtredPortfolio);
-        console.log("index = "+index);
+        checkPortfolioHeight(filtredPortfolio, index);
         firstPageBtnUpdate(filtredPortfolio, index); // обновляем кнопку "1"
         btnChangeStatus(portfolioPagesBtnNext, false); //делаем неактивной кнопку NEXT
         portfolioPagesBtnNext.removeEventListener("click", nextBtnWork);
@@ -802,6 +813,7 @@ function nextBtnWork(){
         portfolioPagesBtnPrev.addEventListener("click", prevBtnWork); //делаем активной кнопку PREV
         btnChangeStatus(portfolioPagesBtnPrev, true);
         index = findIndexInPortfolio(examplesArray);
+        checkPortfolioHeight(examplesArray, index);
         firstPageBtnUpdate(examplesArray, index); // обновляем кнопку "1"
         if(index+5 > examplesArray.length){
             btnChangeStatus(portfolioPagesBtnNext, false); //делаем неактивной кнопку NEXT
@@ -824,6 +836,7 @@ function nextBtnWork(){
             portfolioPagesBtnPrev.addEventListener("click", prevBtnWork); //делаем активной кнопку PREV
             btnChangeStatus(portfolioPagesBtnPrev, true);
             index = findIndexInPortfolio(filtredPortfolio);
+            checkPortfolioHeight(filtredPortfolio, index);
             firstPageBtnUpdate(filtredPortfolio, index); // обновляем кнопку "1"
             checkNextBtnToWork(filtredPortfolio, index);
             lastPageBtnUpdate(filtredPortfolio);//делаем неактивной кнопку "99"
@@ -847,6 +860,7 @@ function prevBtnWork(){
                 document.querySelector("#"+examplesArray[i].id).style.display = "flex";
             }
             index = findIndexInPortfolio(examplesArray);
+            checkPortfolioHeight(examplesArray, index);
             firstPageBtnUpdate(examplesArray, index); // обновляем кнопку "1"
             checkNextBtnToWork(index, examplesArray);  //делаем активной кнопку NEXT, если нужно
             lastPageBtnUpdate(examplesArray);//делаем активной кнопку "99", если нужно
@@ -861,6 +875,7 @@ function prevBtnWork(){
             document.querySelector("#"+filtredPortfolio[i].id).style.display = "flex";
         }
         index = findIndexInPortfolio(filtredPortfolio);
+        checkPortfolioHeight(filtredPortfolio, index);
         checkNextBtnToWork(index, filtredPortfolio);  //делаем активной кнопку NEXT, если нужно
         lastPageBtnUpdate(filtredPortfolio);//делаем активной кнопку "99", если нужно
         checkPrevBtnToWork(index); //делаем неактивной кнопку PREV< если нужно
