@@ -522,7 +522,8 @@ h1{
     background-blend-mode:saturation;
     background-position: top center;
     background-repeat: no-repeat;
-    transition-duration: .5s;
+    transition-duration: .3s;
+    transition-timing-function: ease-in-out;
 }
 
 .see_full_project {
@@ -537,6 +538,8 @@ h1{
     height: 71px;
     justify-content: center;
     align-items: center;
+    transition-duration: .2s;
+    transition-timing-function:ease;
 }
 .see_full_project:hover {
     background-color: #b69b67;

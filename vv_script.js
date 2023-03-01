@@ -550,10 +550,25 @@ let example25 = new PortfolioExample("promoRoliki", "./img/portfolio/onova.jpg",
 "Презентація", "промо ролики");
 example25.createAndAddToDOM();
 
+let example26 = new PortfolioExample("eventVideos", "./img/portfolio/reddesignparty.jpg", "DESIGN TOUR - RED DESIGN PARTY",
+"Монтаж від VolumeView на замовлення Design Tour Show", "івенти");
+example26.createAndAddToDOM();
+
+let example27 = new PortfolioExample("eventVideos", "./img/portfolio/portraitsofdesign.jpg", "PORTRAITS OF DESIGN by DESIGN TOUR",
+"Зйомка від VolumeView на замовлення Design Tour Show", "івенти");
+example27.createAndAddToDOM();
+
+let example28 = new PortfolioExample("eventVideos", "./img/portfolio/fordmax_event.jpg", "Івент-презентація FORD TRUCKS F-MAX",
+"Створення презентаційного ролику для компанії AVTEK", "івенти");
+example28.createAndAddToDOM();
+
+let example29 = new PortfolioExample("eventVideos", "./img/portfolio/pubg.jpg", "PUBG EUROPE LEAGUE", "Чемпіонат з кіберспорту PUBG EUROPE LEAGUE 2019 у Берліні.", "івенти");
+example29.createAndAddToDOM();
+
 let examplesArray = new Array; //создадим массив из созданных объектов для портфолио
 examplesArray.push(example1, example2, example3, example4,
                     example5, example6, example7, example8,
-                        example9, example10, example11, example12, example13, example14, example15, example16, example17, example18, example19, example20, example21, example22, example23, example24, example25);
+                        example9, example10, example11, example12, example13, example14, example15, example16, example17, example18, example19, example20, example21, example22, example23, example24, example25, example26, example27, example28, example29);
 let filtredPortfolio = examplesArray; //копия массива для фильтрации
 
 function show4Examples(array){ //функция для отображения только 4х (или сколько есть) первых эл-в м-ва
@@ -649,12 +664,15 @@ function checkPortfolioHeight(array, index){
             break;
             case 3:
                 document.querySelector("#portfolio_block").style.height = 480 + "px";
+                scrollWindowTo(scrollToPortfolio);
             break;
             case 2:
                 document.querySelector("#portfolio_block").style.height = 320 + "px";
+                scrollWindowTo(scrollToPortfolio);
             break;
             case 1:
                 document.querySelector("#portfolio_block").style.height = 160 + "px";
+                scrollWindowTo(scrollToPortfolio);
             break;    
             default:
                 document.querySelector("#portfolio_block").style.height = 640 + "px";
@@ -908,7 +926,7 @@ portfolioItems.forEach(item => {
         //ф-я check() принимает в параметры эл-т и время для setInterval и создаёт промис
         let promise = check(item, 200);
         promise.then(() => {
-            let t2 = setTimeout(()=> { //500мс задержка
+            let t2 = setTimeout(()=> { //100мс задержка
                 //ищем в м-ве индекс эл-та с атр-м "show" = "true" (это предыдущий активированный эл-т)
                 let x = portfolioItems.findIndex(el => {
                     return el.firstElementChild.dataset.show === "true";
@@ -925,8 +943,7 @@ portfolioItems.forEach(item => {
                 item.firstElementChild.style.display = 'flex';
                 item.firstElementChild.dataset.show = "true";
             }, 100);
-        })
-        
+        });
     });
 });
 
@@ -950,9 +967,14 @@ function check(element, time) {
         })
     })
 }
-document.querySelector("#feedback_section").addEventListener("mouseover", closeAllItems, true);
-document.querySelector("#services").addEventListener("mouseover", closeAllItems, true);
-function closeAllItems(){ //ЭТА ФУНКЦИЯ ПОКА НЕ ИСПОЛЬЗУЕТСЯ...
+document.querySelector("#feedback_section").addEventListener("mouseover", (e)=>{
+    check(e.target, 100).then(closeAllItems);
+}, true);
+document.querySelector("#services").addEventListener("mouseover", (e)=>{
+    check(e.target, 100).then(closeAllItems);
+}, true);
+
+function closeAllItems(){
     portfolioItems.forEach(item => {
         if(getComputedStyle(item.lastElementChild).display != 'block')
             item.lastElementChild.style.display = 'block';
