@@ -32,15 +32,15 @@
             <div id="menu_elements" class="lists_menu_like">
                 <ul class="h2">
                     <li><a href="#" onclick="closeMenu()">MAIN</a></li>
-                    <li><a onclick="scrollWindowTo(), closeMenu()">ВИРОБНИЦТВО</a></li>
-                    <li><a onclick="scrollWindowTo(scrollToPortfolio), closeMenu()">PORTFOLIO</a></li>
+                    <li><a onclick="scrollToServices(), closeMenu()">ВИРОБНИЦТВО</a></li>
+                    <li><a onclick="scrollToPortfolio(), closeMenu()">PORTFOLIO</a></li>
                     <li><a href="#">BLOG</a></li>
                     <li><a href="#">PRICING</a></li>
-                    <li><a onclick="scrollWindowTo(scrollToFeedbacks), closeMenu()">FEEDBAKS</a></li>
-                    <li><a onclick="scrollWindowTo(scrollToContacts), closeMenu()">CONTACTS</a></li>
+                    <li><a onclick="scrollToFeedbacks(), closeMenu()">FEEDBAKS</a></li>
+                    <li><a onclick="scrollToContacts(), closeMenu()">CONTACTS</a></li>
                     <li class="sign_in_up"><a href="#">SIGN UP</a></li>
                     <li class="sign_in_up"><a href="#">SIGN IN</a></li>
-                    <li><a onclick="scrollWindowTo(scrollToContactUS), closeMenu()">SEND MESSAGE</a></li>
+                    <li><a onclick="scrollToContactUs(), closeMenu()">SEND MESSAGE</a></li>
                 </ul>
                 <div id="search_div">
                     <h2 class="h2" id="search">SEARCH</h2>
@@ -164,37 +164,55 @@
         <div id="contacts_div">
             <div class="contact_type">
                 <h2 class="h2">PHONE</h2>
-                <h2 class="h2">8-800-500-40-10</h2>
-                <h2 class="h2">8-800-700-80-20</h2>
+                <h2 class="h2">+38-066-549-78-92</h2>
+                <h2 class="h2">+38-098-579-46-96</h2>
             </div>
             <div class="contact_type">
                 <h2 class="h2">EMAIL</h2>
-                <h2 class="h2">UNDERCOVERDESIGN@mail.com</h2>
-                <h2 class="h2">UNDERCOVERSUPPORT@mail.com</h2>
+                <h2 class="h2"><a href="mailto:mikulskaja@gmail.com">mikulskaja@gmail.com</a></h2>
+                <h2 class="h2"><a href="mailto:vzmaze@gmail.com">vzmaze@gmail.com</a></h2>
             </div>
             <div class="contact_type">
                 <h2 class="h2">ADRESS</h2>
-                <h2 class="h2">HEROYIV STALINGRADU 27,</h2>
+                <h2 class="h2">VOLODYMYRA IVASUKA 27</h2>
                 <h2 class="h2">KYIV, UKRAINE</h2>
             </div>
         </div>
     </section>
     
     <footer>
-        <h1 id="footer_slogan" class="slogan">this is the place where sparkles of idea turns into fire</h1>
+        <!-- <h1 id="footer_slogan" class="slogan">this is the place where sparkles of idea turns into fire</h1> -->
+        <h1 id="footer_slogan" class="slogan">ми мали честь співпрацювати</h1>
+        <div id="partners">
+            <img src="img/partners/minkult.png" title="Міністерство Культури України" alt="Міністерство Культури України">
+            <img src="img/partners/ivano-frankivsk.png" title="Івано-Франківська ОДА", alt="Івано-Франківська ОДА">
+            <img src="img/partners/zakarpatta.jpg" title="Закарпатська ОДА" alt="Закарпатська ОДА">
+            <img src="img/partners/mykolaiv.png" title="Миколаївська ОДА" alt="Миколаївська ОДА">
+            <img src="img/partners/vinnitska_oda.jpg" title="Вінницька ОДА" alt="Вінницька ОДА">
+            <img src="img/partners/vinnitsa.png" title="Місто Вінниця" alt="Місто Вінниця">
+            <img src="img/partners/vorokhta.png" title="Ворохта" alt="Ворохта">
+            <img src="img/partners/yaremche.png" title="Яремче" alt="Яремче">
+            <img src="img/partners/inter.jpg" title="Телеканал ІНТЕР" alt="Телеканал ІНТЕР">
+            <img src="img/partners/cocacola.jpg" title="Coca-Cola" alt="Coca-Cola">
+            <img src="img/partners/starladder.jpg" title="Starladder" alt="Starladder">
+            <img src="img/partners/chernomorka.png" title="Черноморка" alt="Черноморка">
+            <img src="img/partners/biokon.png" title="Біокон" alt="Біокон">
+            <img src="img/partners/sportarena.jpg" title="Sport Arena" alt="Sport Arena">
+        </div>
         <ul id="footer_links">
-            <li><a onclick="scrollWindowTo(), closeMenu()">services</a></li>
-            <li><a onclick="scrollWindowTo(scrollToPortfolio), closeMenu()">portfolio</a></li>
-            <li><a onclick="scrollWindowTo(scrollToFeedbacks), closeMenu()">feedbacks</a></li>
-            <li><a onclick="scrollWindowTo(scrollToContactUS), closeMenu()">contact us</a></li>
-            <li><a onclick="scrollWindowTo(scrollToContacts), closeMenu()">contacts</a></li>
-            <li><a href="">facebook</a></li>
+            <li><a onclick="scrollToMain()">на головну</a></li>
+            <li><a onclick="scrollToServices()">services</a></li>
+            <li><a onclick="scrollToPortfolio()">portfolio</a></li>
+            <li><a onclick="scrollToFeedbacks()">feedbacks</a></li>
+            <li><a onclick="scrollToContactUs()">contact us</a></li>
+            <li><a onclick="scrollToContacts()">contacts</a></li>
+            <!-- <li><a href="">facebook</a></li>
             <li><a href="">linkedin</a></li>
             <li><a href="">twitter</a></li>
             <li><a href="">google+</a></li>
             <li><a href="">sign up</a></li>
             <li><a href="">sign in</a></li>
-            <li><a href="">search</a></li>
+            <li><a href="">search</a></li> -->
         </ul>
     </footer>
     <div id="underfooter"></div>

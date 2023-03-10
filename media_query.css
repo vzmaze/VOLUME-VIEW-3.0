@@ -2123,9 +2123,12 @@
         justify-content: space-evenly;
         flex-direction: column;
         flex-wrap: wrap;
-        height: 117px;
+        height: 85px;
         align-content: space-around;
         padding-left: 0;
+    }
+    #footer_links li {
+        margin-bottom: 10px;
     }
     #underfooter {
         height: 333px;
@@ -2456,7 +2459,7 @@
         justify-content: space-evenly;
         flex-direction: column;
         flex-wrap: wrap;
-        height: 117px;
+        height: 110px;
         align-content: space-around;
         padding-left: 0;
     }

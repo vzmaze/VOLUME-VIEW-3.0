@@ -115,71 +115,29 @@ function crossDissolve(elem, which = true) {
 
 // Скроллинг кнопкой arrow_down
 
-let bodyWidth = parseInt(getComputedStyle(document.body).width);
-
 let arrowDownBtn = document.querySelector("#arrow_down");
-let scrollToServices = 1000;
-let scrollToPortfolio = 2050;
-let scrollToFeedbacks = 3050;
-let scrollToContacts = 4050;
-let scrollToContactUS = 3050;
-if(window.matchMedia("(max-width: 1400px) and (orientation: landscape)").matches) {
-    scrollToServices = 820;
-    console.log("1");
-} else if(window.matchMedia("(max-device-width: 412px) and (device-height: 914px").matches && bodyWidth <=412) {
-    scrollToServices = 900;
-    scrollToPortfolio = 1770;
-    scrollToFeedbacks = 2650;
-    scrollToContacts = 4050;
-    scrollToContactUS = 3250;
-} else if (window.matchMedia("(orientation: portrait) and (max-device-width: 450px) and (max-device-height: 745px)").matches && bodyWidth <= 412) {
-    scrollToServices = 740;
-    scrollToPortfolio = 1580;
-    scrollToFeedbacks = 2505;
-    scrollToContacts = 3860;
-    scrollToContactUS = 3250;
-    console.log("5.1");
-}
-else if (window.matchMedia("(orientation: portrait) and (max-device-width: 414px)").matches && bodyWidth <= 414) {
-    scrollToServices = 800;
-    scrollToPortfolio = 1620;
-    scrollToFeedbacks = 2555;
-    scrollToContacts = 3910;
-    scrollToContactUS = 3250;
-    console.log("5");
-} else if (window.matchMedia("(orientation: portrait) and (max-device-width: 500px)").matches && bodyWidth <= 412) {
-    scrollToServices = 800;
-    scrollToPortfolio = 1700;
-    scrollToFeedbacks = 2650;
-    scrollToContacts = 4050;
-    scrollToContactUS = 3250;
-    console.log("5");
-} else if (window.matchMedia("(max-width: 1300px) and (orientation: landscape)").matches) {
-    scrollToServices = 800;
-    console.log("2");
-} else if (window.matchMedia("(orientation: portrait)").matches && window.matchMedia("(max-width: 1023px)").matches) {
-    scrollToServices = 950;
-    console.log("3");
-} else if (window.matchMedia("(orientation: portrait)").matches && window.matchMedia("(min-width: 1024px)").matches) {
-    scrollToServices = 1300;
-    console.log("4");
-}
-if (window.matchMedia("(max-width: 960px) and (max-height: 450px)").matches) {
-    scrollToServices = 540;
-    scrollToPortfolio = 1100;
-    scrollToFeedbacks = 1700;
-    scrollToContacts = 2300;
-    scrollToContactUS = scrollToFeedbacks;
-}
+
 arrowDownBtn.addEventListener("click", () => {
-    scrollWindowTo(scrollToServices);
+        window.location.hash="services";
 });
-function scrollWindowTo(distance = scrollToServices){
-    window.scrollTo({
-        top: distance,
-        behavior: "smooth"
-    });
-};
+function scrollToMain() {
+    window.location.hash = "logo_div";
+}
+function scrollToServices() {
+    window.location.hash = "services";
+}
+function scrollToPortfolio() {
+    window.location.hash = "portfolio";
+}
+function scrollToFeedbacks() {
+    window.location.hash = "feedback_section";
+}
+function scrollToContacts() {
+    window.location.hash = "contacts";
+}
+function scrollToContactUs() {
+    window.location.hash = "contact_us";
+}
 
 //SERVICES
 
@@ -409,12 +367,13 @@ class PortfolioExample {
     color1 = "rgba"+"("+48+","+48+","+48+","+0.5+")";
     color2 = "rgba"+"("+105+","+86+","+49+","+0.2+")";
     id = this.setId();
-    constructor (category, url, header, descr, foot){
+    constructor (category, url, header, descr, foot, href){
         this.category = category;
         this.url = "url"+"("+url+")";
         this.header = header;
         this.descr = descr;
         this.foot = foot;
+        this.href = href;
     }
     setBackground(x = 1) {
         if(x == 1)
@@ -436,6 +395,7 @@ class PortfolioExample {
         let newDiv = document.createElement('div');        
         newDiv.id = this.setId();
         newDiv.classList.add(this.setClass());
+        newDiv.setAttribute("data-youtube", this.href);
         newDiv.style.background = this.setBackground(1);
         newDiv.style.backgroundSize = this.setBgSize();
         
@@ -458,111 +418,111 @@ class PortfolioExample {
 }
 
 let example1 = new PortfolioExample("travelFilms", "./img/portfolio/ivano-frankivshina.jpg", "TOUR de UKRAINE Івано-Франківщина",
-"З циклу туристичних фільмів про подорожі Україною.", "travel фільми");
+"З циклу туристичних фільмів про подорожі Україною.", "travel фільми", "https://www.youtube.com/embed/3z8lMpOx5qE");
 example1.createAndAddToDOM();
 
 let example2 = new PortfolioExample("businessStories", "./img/portfolio/02_2.jpg", "«INDULGENCE»",
-"ПРЕЗЕНТАЦІЯ ДОДАТКУ", "бізнес сторіс");
+"ПРЕЗЕНТАЦІЯ ДОДАТКУ", "бізнес сторіс", "https://www.youtube.com/embed/nNrAoNjauHU");
 example2.createAndAddToDOM();
 
 let example3 = new PortfolioExample("promoRoliki", "./img/portfolio/03_2.jpg", "FORD TRUCKS F-MAX",
-"Презентація", "промо ролики");
+"Презентація", "промо ролики", "https://www.youtube.com/embed/3xenDI2Gf-g");
 example3.createAndAddToDOM();
 
-let example4 = new PortfolioExample("musicVideos", "./img/portfolio/04_2.jpg", "PRYMARA - Гедоністи (Official Video)", "Режисер: Сергій Жерехов", "музичні кліпи");
+let example4 = new PortfolioExample("musicVideos", "./img/portfolio/04_2.jpg", "PRYMARA - Гедоністи (Official Video)", "Режисер: Сергій Жерехов", "музичні кліпи", "https://www.youtube.com/watch?v=DcpleciGdHM");
 example4.createAndAddToDOM();
 
 let example5 = new PortfolioExample("travelFilms", "./img/portfolio/05.jpg", "TOUR de UKRAINE ЗАКАРПАТТЯ",
-                "З циклу туристичних фільмів про подорожі Україною.", "travel фільми");
+                "З циклу туристичних фільмів про подорожі Україною.", "travel фільми", "https://www.youtube.com/watch?v=ItDrXfdAI6w");
 example5.createAndAddToDOM();
 
-let example6 = new PortfolioExample("businessStories", "./img/portfolio/06.jpg", "«Чорноморка» і «Кози та Матроси»", "Відпочинок під Одесою.", "бізнес stories");
+let example6 = new PortfolioExample("businessStories", "./img/portfolio/06.jpg", "«Чорноморка» і «Кози та Матроси»", "Відпочинок під Одесою.", "бізнес stories", "https://www.youtube.com/watch?v=i3c5dGx0An4");
 example6.createAndAddToDOM();
 
 let example7 = new PortfolioExample("promoRoliki", "./img/portfolio/07.jpg", "INTERLINE OEG 933",
-                "інноваційна духова шафа з сучасним дизайном та функціоналом преміум-класа", "promo ролики");
+                "інноваційна духова шафа з сучасним дизайном та функціоналом преміум-класа", "promo ролики", "https://www.youtube.com/watch?v=Al_coP_KGNk");
 example7.createAndAddToDOM();
 
 let example8 = new PortfolioExample("musicVideos", "./img/portfolio/08.jpg", "600V~66A «Kick Out»",
-                "Живе виконання в м. Одеса", "музичні кліпи");
+                "Живе виконання в м. Одеса", "музичні кліпи", "https://www.youtube.com/watch?v=C19XsgMpNSA");
 example8.createAndAddToDOM();
 
-let example9 = new PortfolioExample("travelFilms", "./img/portfolio/mykolayivshina.jpg", "TOUR de UKRAINE МИКОЛАЇВЩИНА", "З циклу туристичних фільмів про подорожі Україною.", "travel фільми");
+let example9 = new PortfolioExample("travelFilms", "./img/portfolio/mykolayivshina.jpg", "TOUR de UKRAINE МИКОЛАЇВЩИНА", "З циклу туристичних фільмів про подорожі Україною.", "travel фільми", "https://www.youtube.com/watch?v=34GDPzfYMuU");
 example9.createAndAddToDOM();
 
 let example10 = new PortfolioExample("businessStories", "./img/portfolio/10.jpg", "ДИЗАЙНЕРИ ІНТЕР'ЄРІВ",
-                "Хвилинний промо-ролик на замовлення команди дизайнерів.", "бізнес stories");
+                "Хвилинний промо-ролик на замовлення команди дизайнерів.", "бізнес stories", "https://www.youtube.com/watch?v=VgEAW2smJ4A");
 example10.createAndAddToDOM();
 
 let example11 = new PortfolioExample("promoRoliki", "./img/portfolio/11.jpg", "PUBG TEAMS INTRODUCTION",
-                "Промо длля PUBG Europe Leage", "promo ролики");
+                "Промо длля PUBG Europe Leage", "promo ролики", "https://www.youtube.com/watch?v=snNRJCPNpTQ");
 example11.createAndAddToDOM();
 
 let example12 = new PortfolioExample("musicVideos", "./img/portfolio/12.jpg", "600V~66A «UNIQUE MAN»",
-                "Перше офіційне відео рок-гурту 600V~66A", "музичні кліпи");
+                "Перше офіційне відео рок-гурту 600V~66A", "музичні кліпи", "https://www.youtube.com/watch?v=byTwYFoBUMU");
 example12.createAndAddToDOM();
 
-let example13 = new PortfolioExample("travelFilms", "./img/portfolio/01_.jpg", "TOUR de UKRAINE Івано-Франківщина Зимова", "З циклу туристичних фільмів про подорожі Україною.", "travel фільми");
+let example13 = new PortfolioExample("travelFilms", "./img/portfolio/01_.jpg", "TOUR de UKRAINE Івано-Франківщина Зимова", "З циклу туристичних фільмів про подорожі Україною.", "travel фільми", "https://www.youtube.com/watch?v=8gerPhrp8WI");
 example13.createAndAddToDOM();
 
 let example14 = new PortfolioExample("businessStories", "./img/portfolio/fordmax.jpg", "ПРЕЗЕНТАЦІЯ FORD TRUCKS F-MAX",
-                "Презентація Ford Trucks F-Max у Києві", "бізнес stories");
+                "Презентація Ford Trucks F-Max у Києві", "бізнес stories", "https://www.youtube.com/embed/3xenDI2Gf-g");
 example14.createAndAddToDOM();
 
-let example15 = new PortfolioExample("promoRoliki", "./img/portfolio/blackcity.jpg", "САЛОН КРАСИ \"BLACK CITY\"", "Промо-ролик на замовлення салону краси", "promo ролики");
+let example15 = new PortfolioExample("promoRoliki", "./img/portfolio/blackcity.jpg", "САЛОН КРАСИ \"BLACK CITY\"", "Промо-ролик на замовлення салону краси", "promo ролики", "https://www.youtube.com/watch?v=4qSHb4W-iyw");
 example15.createAndAddToDOM();
 
 let example16 = new PortfolioExample("promoRoliki", "./img/portfolio/my_vdoma.jpg", "МИ ВДОМА",
-                "До річниці протистояння українського народу повтомасштабному вторгненню", "промо-роліки");
+                "До річниці протистояння українського народу повтомасштабному вторгненню", "промо-роліки", "https://www.youtube.com/watch?v=HqTbtL_g40w");
 example16.createAndAddToDOM();
 
 let example17 = new PortfolioExample("docs", "./img/portfolio/18.jpg", "ЯДРЕНА КОМАНДА",
-                `ЧОРНОБИЛЬ. ФУТБОЛЬНИЙ КЛУБ (операторська робота у співпраці)`, "документальне");
+                `ЧОРНОБИЛЬ. ФУТБОЛЬНИЙ КЛУБ (операторська робота у співпраці)`, "документальне", "https://www.youtube.com/watch?v=fRRfdCTwwxU");
 example17.createAndAddToDOM();
 
 let example18 = new PortfolioExample("docs", "./img/portfolio/17.jpg", "ХРОНІКИ ТИЛУ",
-                "Як волонтери роблять бронежилети в Україні", "документальне");
+                "Як волонтери роблять бронежилети в Україні", "документальне", "https://www.youtube.com/watch?v=ChjeZ4a7-VU");
 example18.createAndAddToDOM();
 
 let example19 = new PortfolioExample("docs", "./img/portfolio/19.jpg", "ХРОНІКИ ТИЛУ",
-                "Як розміщують переселенців", "документальне");
+                "Як розміщують переселенців", "документальне", "https://www.youtube.com/watch?v=sfjWYdqScLc");
 example19.createAndAddToDOM();
 
 let example20 = new PortfolioExample("docs", "./img/portfolio/20.jpg", "ХРОНІКИ ТИЛУ",
-                "Гуманітарна допомога Україні", "документальне");
+                "Гуманітарна допомога Україні", "документальне", "https://www.youtube.com/watch?v=3sIJvrqbBXw");
 example20.createAndAddToDOM();
 
 let example21 = new PortfolioExample("travelFilms", "./img/portfolio/vinnichina.jpg", "TOUR de UKRAINE Вінничина",
-                "З циклу туристичних фільмів про подорожі Україною.", "travel фільми");
+                "З циклу туристичних фільмів про подорожі Україною.", "travel фільми", "https://www.youtube.com/watch?v=Ekdu9HGsAs4");
 example21.createAndAddToDOM();
 
 let example22 = new PortfolioExample("travelFilms", "./img/portfolio/radomyshl.jpg", "TOUR de UKRAINE Радомишль",
-                "Замок на скелі та фортифікаційні секрети монахів.", "travel фільми");
+                "Замок на скелі та фортифікаційні секрети монахів.", "travel фільми", "https://www.youtube.com/watch?v=1ubag4Yft7U");
 example22.createAndAddToDOM();
 
-let example23 = new PortfolioExample("travelFilms", "./img/portfolio/kryshtaleva2.jpg", "TOUR de UKRAINE Печера Кришталева", "Найкоштовніша і найлегша подорож у підземелля.", "travel фільми");
+let example23 = new PortfolioExample("travelFilms", "./img/portfolio/kryshtaleva2.jpg", "TOUR de UKRAINE Печера Кришталева", "Найкоштовніша і найлегша подорож у підземелля.", "travel фільми", "https://www.youtube.com/watch?v=xDhbTsPZDEQ");
 example23.createAndAddToDOM();
 
-let example24 = new PortfolioExample("travelFilms", "./img/portfolio/mizhrichensky.jpg", "TOUR de UKRAINE Міжрічинський Парк", "Як вижити у болотах Полісся. Незламна Чернігівська область.", "travel фільми");
+let example24 = new PortfolioExample("travelFilms", "./img/portfolio/mizhrichensky.jpg", "TOUR de UKRAINE Міжрічинський Парк", "Як вижити у болотах Полісся. Незламна Чернігівська область.", "travel фільми", "https://www.youtube.com/watch?v=A08Pw_JdThk");
 example24.createAndAddToDOM();
 
 let example25 = new PortfolioExample("promoRoliki", "./img/portfolio/onova.jpg", "ONOVA GIS HUB",
-"Презентація", "промо ролики");
+"Презентація", "промо ролики", "https://www.youtube.com/watch?v=YlI3Jg_Y5ak");
 example25.createAndAddToDOM();
 
 let example26 = new PortfolioExample("eventVideos", "./img/portfolio/reddesignparty.jpg", "DESIGN TOUR - RED DESIGN PARTY",
-"Монтаж від VolumeView на замовлення Design Tour Show", "івенти");
+"Монтаж від VolumeView на замовлення Design Tour Show", "івенти", "https://www.youtube.com/watch?v=vTnKgPXmiys");
 example26.createAndAddToDOM();
 
 let example27 = new PortfolioExample("eventVideos", "./img/portfolio/portraitsofdesign.jpg", "PORTRAITS OF DESIGN by DESIGN TOUR",
-"Зйомка від VolumeView на замовлення Design Tour Show", "івенти");
+"Зйомка від VolumeView на замовлення Design Tour Show", "івенти", "https://www.youtube.com/watch?v=fC8uLfX099M");
 example27.createAndAddToDOM();
 
 let example28 = new PortfolioExample("eventVideos", "./img/portfolio/fordmax_event.jpg", "Івент-презентація FORD TRUCKS F-MAX",
-"Створення презентаційного ролику для компанії AVTEK", "івенти");
+"Створення презентаційного ролику для компанії AVTEK", "івенти", "https://www.youtube.com/watch?v=3xenDI2Gf-g");
 example28.createAndAddToDOM();
 
-let example29 = new PortfolioExample("eventVideos", "./img/portfolio/pubg.jpg", "PUBG EUROPE LEAGUE", "Чемпіонат з кіберспорту PUBG EUROPE LEAGUE 2019 у Берліні.", "івенти");
+let example29 = new PortfolioExample("eventVideos", "./img/portfolio/pubg.jpg", "PUBG EUROPE LEAGUE", "Чемпіонат з кіберспорту PUBG EUROPE LEAGUE 2019 у Берліні.", "івенти", "https://www.youtube.com/watch?v=wR9BFsHixZQ");
 example29.createAndAddToDOM();
 
 let examplesArray = new Array; //создадим массив из созданных объектов для портфолио
@@ -590,7 +550,9 @@ function show4Examples(array){ //функция для отображения т
 }
 show4Examples(examplesArray);
 
-lastPageBtn.textContent = examplesArray.length; //отобразим вместо "99" реальное количество примеров
+// lastPageBtn.textContent = examplesArray.length; //отобразим вместо "99" реальное количество примеров
+lastPageBtn.textContent = Math.ceil(examplesArray.length/4);
+
 
 function hideExamples(array){ //ф-я прячет все эл-ты
     array.forEach(item => {
@@ -608,7 +570,8 @@ pfolioSel.addEventListener("change", ()=> { //об-к событий для sele
             show4Examples(examplesArray);
             i = findIndexInPortfolio(examplesArray);
             firstPageBtnUpdate(examplesArray, i);
-            lastPageBtn.textContent = examplesArray.length;
+            // lastPageBtn.textContent = examplesArray.length;//отображаем общее количество работ
+            lastPageBtn.textContent = Math.ceil(examplesArray.length/4);
             pfolioOptions[pfolioSel.selectedIndex].style.display = 'block';
             pfolioSel.selectedIndex = 0;
             alert("в портфолио " + filtredPortfolio.length + " элементов данного типа.");
@@ -619,7 +582,8 @@ pfolioSel.addEventListener("change", ()=> { //об-к событий для sele
         show4Examples(filtredPortfolio);
         i = findIndexInPortfolio(filtredPortfolio);
         firstPageBtnUpdate(filtredPortfolio, i);
-        lastPageBtn.textContent = filtredPortfolio.length;
+        // lastPageBtn.textContent = filtredPortfolio.length;//версия с общим кол-вом работ
+        lastPageBtn.textContent = Math.ceil(filtredPortfolio.length/4);
         lastPageBtnUpdate(filtredPortfolio);
         checkPrevBtnToWork(i);
         checkPortfolioHeight(filtredPortfolio, i);
@@ -630,7 +594,8 @@ pfolioSel.addEventListener("change", ()=> { //об-к событий для sele
             i = findIndexInPortfolio(examplesArray);
             checkPortfolioHeight(examplesArray, i);
             firstPageBtnUpdate(examplesArray, i);
-            lastPageBtn.textContent = examplesArray.length;
+            // lastPageBtn.textContent = examplesArray.length;//версия с общим кол-м работ
+            lastPageBtn.textContent = Math.ceil(examplesArray.length/4);
             lastPageBtnUpdate(examplesArray);
         break;
         case "travelFilms":
@@ -918,10 +883,18 @@ examplesArray.forEach(ex => {
 //к каждому этому div'у добавляем свой атрибут "data-show" со знач. "false" по ум-ю
 let portfolioItems = Array.from(document.querySelector("#portfolio_block").querySelectorAll(".portfolio_example"));
 portfolioItems.forEach(item => {
-    item.insertAdjacentHTML("afterbegin", '<div class="see_full_project">SEE FULL PROJECT</div>');
+    function linkYoutube(){
+        window.open(item.dataset.youtube, "_blank");
+    }
+    item.insertAdjacentHTML("afterbegin", '<div class="see_full_project">ДИВИТИСЯ</div>');
     item.firstElementChild.setAttribute('data-show', 'false');
     item.firstElementChild.classList.add("h2");
     //вешаем об-к событий
+    item.addEventListener("click", (e)=> {
+        if(e.target.classList.contains("see_full_project")){
+            linkYoutube();
+        }
+    })
     item.addEventListener('click' && 'mouseover', (e) => {
         //ф-я check() принимает в параметры эл-т и время для setInterval и создаёт промис
         let promise = check(item, 200);
